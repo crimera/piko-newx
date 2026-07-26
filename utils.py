@@ -3,9 +3,6 @@ import subprocess
 import sys
 
 import requests
-from constants import REPO
-from github import get_last_build_version, get_release_by_tag
-
 _scraper = None
 
 def get_scraper():
@@ -22,52 +19,6 @@ def get_scraper():
 def panic(message: str):
     print(message, file=sys.stderr)
     exit(1)
-
-
-def send_message(message: str, token: str, chat_id: str, thread_id: str):
-    endpoint = f"https://api.telegram.org/bot{token}/sendMessage"
-
-    data = {
-        "parse_mode": "Markdown",
-        "disable_web_page_preview": "true",
-        "text": message,
-        "message_thread_id": thread_id,
-        "chat_id": chat_id,
-    }
-
-    response = requests.post(endpoint, data=data)
-    response.raise_for_status()
-
-
-def report_to_telegram(tag: str | None = None):
-    tg_token = os.environ["TG_TOKEN"]
-    tg_chat_id = os.environ["TG_CHAT_ID"]
-    tg_thread_id = os.environ["TG_THREAD_ID"]
-
-    release = get_release_by_tag(REPO, tag) if tag else get_last_build_version(REPO)
-
-    if release is None and tag:
-        raise RuntimeError(f"Could not fetch release for tag: {tag}")
-
-    if release is None:
-        raise RuntimeError("Could not fetch latest release")
-
-    downloads = [
-        f"[{asset.name}]({asset.browser_download_url})" for asset in release.assets
-    ]
-
-    download_links = "\n\n".join(downloads)
-    message = f"""
-[New Update Released !]({release.html_url})
-
-▼ Downloads ▼
-
-{download_links}
-"""
-
-    print(message)
-
-    send_message(message, tg_token, tg_chat_id, tg_thread_id)
 
 
 def download(link, out, headers=None, use_scraper=False):

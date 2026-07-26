@@ -3,7 +3,7 @@ from build_variants import build_apks
 from build_piko import build_piko_patches
 from download_bins import download_morphe_cli
 import github
-from utils import panic, publish_release, report_to_telegram
+from utils import panic, publish_release
 from constants import REPO
 import apkmirror
 import os
@@ -54,7 +54,6 @@ Piko source:
         latest_version.version
     )
 
-    report_to_telegram(tag=latest_version.version)
 
 
 def main():
