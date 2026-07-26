@@ -1,4 +1,5 @@
 import os
+import re
 import subprocess
 import sys
 
@@ -62,6 +63,7 @@ def patch_apk(
     includes: list[str] | None = None,
     excludes: list[str] | None = None,
     out: str | None = None,
+    minimum_patches: int | None = None,
 ):
     command = [
         "java",
@@ -97,7 +99,19 @@ def patch_apk(
         command.extend(["--out", out])
 
     command.append(apk)
-    subprocess.run(command).check_returncode()
+    result = subprocess.run(command, text=True, capture_output=True)
+    print(result.stdout, end="")
+    print(result.stderr, end="", file=sys.stderr)
+    result.check_returncode()
+
+    if minimum_patches is not None:
+        output = result.stdout + result.stderr
+        match = re.search(r"Applying\s+(\d+)\s+patches?", output, re.IGNORECASE)
+        applied = int(match.group(1)) if match else 0
+        if applied < minimum_patches:
+            raise RuntimeError(
+                f"Morphe applied {applied} patches; expected at least {minimum_patches}"
+            )
 
     if out is not None and not os.path.exists(out):
         raise FileNotFoundError(f"Morphe did not create the expected output: {out}")

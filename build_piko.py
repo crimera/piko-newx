@@ -1,16 +1,35 @@
 import os
+import re
 import shutil
 import subprocess
 import tempfile
+from dataclasses import dataclass
 from pathlib import Path
-import subprocess
-import tempfile
 
 PIKO_REPOSITORY = "https://github.com/crimera/piko.git"
 PIKO_BRANCH = "x-lite"
+XLITE_CONSTANTS = (
+    "patches/src/main/kotlin/app/crimera/patches/xlite/utils/Constants.kt"
+)
 
 
-def build_piko_patches(output: str = "bins/patches.mpp") -> str:
+@dataclass(frozen=True)
+class PikoBuild:
+    commit: str
+    supported_versions: frozenset[str]
+
+
+def get_supported_versions(constants: str) -> frozenset[str]:
+    """Return the X-Lite app versions supported by the checked-out Piko source."""
+    versions = frozenset(
+        re.findall(r'AppTarget\(version\s*=\s*"([^"]+)"\)', constants)
+    )
+    if not versions:
+        raise ValueError("Could not find X-Lite compatible app versions in Piko")
+    return versions
+
+
+def build_piko_patches(output: str = "bins/patches.mpp") -> PikoBuild:
     output_path = Path(output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -29,6 +48,10 @@ def build_piko_patches(output: str = "bins/patches.mpp") -> str:
                 str(piko_directory),
             ],
             check=True,
+        )
+
+        supported_versions = get_supported_versions(
+            (piko_directory / XLITE_CONSTANTS).read_text()
         )
 
         subprocess.run(
@@ -54,4 +77,4 @@ def build_piko_patches(output: str = "bins/patches.mpp") -> str:
             text=True,
         )
 
-    return commit.stdout.strip()
+    return PikoBuild(commit=commit.stdout.strip(), supported_versions=supported_versions)
