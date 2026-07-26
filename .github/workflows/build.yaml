@@ -1,4 +1,4 @@
-name: Release
+name: Release - Piko Lite
 
 on:
   workflow_dispatch:
