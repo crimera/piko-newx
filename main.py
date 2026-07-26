@@ -1,6 +1,7 @@
 from apkmirror import Version, Variant
 from build_variants import build_apks
-from download_bins import download_morphe_cli, download_release_asset
+from build_piko import build_piko_patches
+from download_bins import download_morphe_cli
 import github
 from utils import panic, publish_release, report_to_telegram
 from constants import REPO
@@ -36,26 +37,19 @@ def process(latest_version: Version):
     # Morphe handles .apkm bundles directly; no APKEditor merge is needed.
     download_morphe_cli(include_prereleases=True)
 
-    print("Downloading patches")
-    pikoRelease = download_release_asset(
-        "crimera/piko", "^patches.*mpp$", "bins", "patches.mpp", include_prereleases=True
-    )
+    print("Building Piko patches from the x-lite branch")
+    piko_commit = build_piko_patches()
 
     message: str = f"""
-Changelogs:
-[piko-{pikoRelease["tag_name"]}]({pikoRelease["html_url"]})
+Piko source:
+[x-lite@{piko_commit[:7]}](https://github.com/crimera/piko/commit/{piko_commit})
 """
 
     build_apks(latest_version)
 
     publish_release(
         latest_version.version,
-        [
-            f"x-piko-v{latest_version.version}.apk",
-            f"x-piko-material-you-v{latest_version.version}.apk",
-            f"twitter-piko-v{latest_version.version}.apk",
-            f"twitter-piko-material-you-v{latest_version.version}.apk",
-        ],
+        [f"piko-lite-v{latest_version.version}.apk"],
         message,
         latest_version.version
     )

@@ -56,12 +56,13 @@ def report_to_telegram(tag: str | None = None):
         f"[{asset.name}]({asset.browser_download_url})" for asset in release.assets
     ]
 
+    download_links = "\n\n".join(downloads)
     message = f"""
 [New Update Released !]({release.html_url})
 
 ▼ Downloads ▼
 
-{"\n\n".join(downloads)}
+{download_links}
 """
 
     print(message)
