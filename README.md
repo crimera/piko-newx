@@ -1,4 +1,4 @@
-Apk builds of [piko](https://github.com/crimera/piko) patches
+Builds patched Twitter/X APKs using [Piko](https://github.com/crimera/piko) patches from the `x-lite` branch.
 
 [Latest Build Download](https://github.com/crimera/twitter-apk/releases/latest)
 
