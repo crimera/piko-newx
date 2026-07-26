@@ -76,17 +76,11 @@ def main():
         repo_url
     )
 
-    if last_build_version is None:
-        panic("Failed to fetch the latest build version")
-        return
-
-    # Begin stuff
-    if last_build_version.tag_name != latest_version.version:
-        print(f"New version found: {latest_version.version}")
-    else:
+    if last_build_version is not None and last_build_version.tag_name == latest_version.version:
         print("No new version found")
         return
 
+    print(f"New version found: {latest_version.version}")
     process(latest_version)
 
 
