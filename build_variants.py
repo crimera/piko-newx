@@ -2,7 +2,7 @@ from apkmirror import Version
 from utils import patch_apk
 
 
-def build_apks(latest_version: Version, apk: str):
+def build_apks(latest_version: Version, apk: str, piko_commit: str):
     # patch
     patches = "bins/patches.mpp"
     cli = "bins/morphe-cli.jar"
@@ -24,6 +24,6 @@ def build_apks(latest_version: Version, apk: str):
         apk,
         includes=includes,
         excludes=[],
-        out=f"piko-lite-v{latest_version.version}.apk",
+        out=f"piko-lite-v{latest_version.version}-{piko_commit[:7]}.apk",
         minimum_patches=len(includes),
     )

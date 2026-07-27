@@ -44,19 +44,23 @@ def process(latest_version: Version, piko_build: PikoBuild):
 
     download_morphe_cli(include_prereleases=True)
 
-    print(f"Using Piko x-lite@{piko_build.commit[:7]}")
-    build_apks(latest_version, apk_path)
+    piko_commit = piko_build.commit[:7]
+    release_tag = f"{latest_version.version}-{piko_commit}"
+    apk_name = f"piko-lite-v{latest_version.version}-{piko_commit}.apk"
+
+    print(f"Using Piko x-lite@{piko_commit}")
+    build_apks(latest_version, apk_path, piko_build.commit)
 
     message = f"""
 Piko source:
-[x-lite@{piko_build.commit[:7]}](https://github.com/crimera/piko/commit/{piko_build.commit})
+[x-lite@{piko_commit}](https://github.com/crimera/piko/commit/{piko_build.commit})
 """
 
     publish_release(
-        latest_version.version,
-        [f"piko-lite-v{latest_version.version}.apk"],
+        release_tag,
+        [apk_name],
         message,
-        latest_version.version,
+        release_tag,
     )
 
 
@@ -72,10 +76,11 @@ def main():
     if latest_version is None:
         raise Exception("No X release is supported by the Piko x-lite patches")
 
+    release_tag = f"{latest_version.version}-{piko_build.commit[:7]}"
     last_build_version: github.GithubRelease | None = github.get_last_build_version(REPO)
     if (
         last_build_version is not None
-        and last_build_version.tag_name == latest_version.version
+        and last_build_version.tag_name == release_tag
     ):
         print("No new compatible version found")
         return
