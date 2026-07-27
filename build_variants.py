@@ -14,6 +14,8 @@ def build_apks(latest_version: Version, apk: str):
         "X-Lite: Customize inline actions",
         "X-Lite: Unlock downloads",
         "X-Lite: Hide new-post pill",
+        "X-Lite: Filter posts by keyword",
+        "X-Lite: Customize navigation bar items",
     ]
 
     patch_apk(
