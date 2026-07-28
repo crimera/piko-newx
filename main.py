@@ -49,9 +49,12 @@ def process(latest_version: Version, piko_build: PikoBuild):
     apk_name = f"piko-lite-v{latest_version.version}-{piko_commit}.apk"
 
     print(f"Using Piko x-lite@{piko_commit}")
-    build_apks(latest_version, apk_path, piko_build.commit)
+    patches = build_apks(latest_version, apk_path, piko_build.commit)
 
-    message = f"""
+    patch_list = "\n".join(f"- {patch}" for patch in patches)
+    message = f"""Patches applied:
+{patch_list}
+
 Piko source:
 [x-lite@{piko_commit}](https://github.com/crimera/piko/commit/{piko_build.commit})
 """

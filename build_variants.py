@@ -31,7 +31,7 @@ def get_xlite_patches(cli: str, patches: str) -> list[str]:
     return includes
 
 
-def build_apks(latest_version: Version, apk: str, piko_commit: str):
+def build_apks(latest_version: Version, apk: str, piko_commit: str) -> list[str]:
     patches = "bins/patches.mpp"
     cli = "bins/morphe-cli.jar"
     includes = get_xlite_patches(cli, patches)
@@ -45,3 +45,5 @@ def build_apks(latest_version: Version, apk: str, piko_commit: str):
         out=f"piko-lite-v{latest_version.version}-{piko_commit[:7]}.apk",
         minimum_patches=len(includes),
     )
+
+    return includes
