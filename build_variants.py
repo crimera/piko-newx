@@ -16,6 +16,8 @@ def build_apks(latest_version: Version, apk: str, piko_commit: str):
         "X-Lite: Hide new-post pill",
         "X-Lite: Filter posts by keyword",
         "X-Lite: Customize navigation bar items",
+        "X-Lite: Share post as image",
+        "X-Lite: Hide premium upsell",
     ]
 
     patch_apk(
