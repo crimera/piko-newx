@@ -19,6 +19,9 @@ jobs:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '21'
 
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
@@ -31,6 +34,7 @@ jobs:
       - name: Try building
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GRADLE_OPTS: -Dorg.gradle.caching=true
         run: |
           mkdir -p bins
           uv run main.py
