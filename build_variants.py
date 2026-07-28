@@ -1,24 +1,40 @@
+import re
+import subprocess
+
 from apkmirror import Version
 from utils import patch_apk
 
 
+XLITE_PATCH_NAME = re.compile(r"^Name:\s*(X-Lite:\s*.+?)\s*$", re.MULTILINE)
+
+
+def get_xlite_patches(cli: str, patches: str) -> list[str]:
+    result = subprocess.run(
+        [
+            "java",
+            "-jar",
+            cli,
+            "list-patches",
+            "--patches",
+            patches,
+            "--with-descriptions=false",
+        ],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+
+    output = result.stdout + result.stderr
+    includes = list(dict.fromkeys(XLITE_PATCH_NAME.findall(output)))
+    if not includes:
+        raise RuntimeError("Morphe returned no X-Lite patches")
+    return includes
+
+
 def build_apks(latest_version: Version, apk: str, piko_commit: str):
-    # patch
     patches = "bins/patches.mpp"
     cli = "bins/morphe-cli.jar"
-
-    includes = [
-        "X-Lite: Remove ads",
-        "X-Lite: Disable automatic timeline refresh",
-        "X-Lite: Restore timeline position",
-        "X-Lite: Customize inline actions",
-        "X-Lite: Unlock downloads",
-        "X-Lite: Hide new-post pill",
-        "X-Lite: Filter posts by keyword",
-        "X-Lite: Customize navigation bar items",
-        "X-Lite: Share post as image",
-        "X-Lite: Hide premium upsell",
-    ]
+    includes = get_xlite_patches(cli, patches)
 
     patch_apk(
         cli,
