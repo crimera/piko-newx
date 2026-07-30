@@ -25,6 +25,21 @@ def get_latest_version(
             return version
 
 
+def get_bundle_variant(variants: list[Variant]) -> Variant | None:
+    universal_bundle = next(
+        (
+            variant
+            for variant in variants
+            if variant.is_bundle and variant.architecture == "universal"
+        ),
+        None,
+    )
+    if universal_bundle is not None:
+        return universal_bundle
+
+    return next((variant for variant in variants if variant.is_bundle), None)
+
+
 def format_patch_list(
     patches: list[str], previous_patches: list[str] | None
 ) -> str:
@@ -75,16 +90,9 @@ def process(
 ):
     variants: list[Variant] = apkmirror.get_variants(latest_version)
 
-    download_link = next(
-        (
-            variant
-            for variant in variants
-            if variant.is_bundle and variant.architecture == "universal"
-        ),
-        None,
-    )
+    download_link = get_bundle_variant(variants)
     if download_link is None:
-        raise Exception("Universal bundle not found")
+        raise Exception("APK bundle not found")
 
     # Keep the input version-specific so a retry cannot accidentally patch a
     # stale APK left by an earlier build.
