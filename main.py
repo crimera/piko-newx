@@ -17,12 +17,10 @@ PATCHES_LIST_ASSET = "patches-list.json"
 PATCHES_MPP = "bins/patches.mpp"
 
 
-def get_latest_release(
+def get_latest_version(
     versions: list[Version], supported_versions: frozenset[str] | None = None
 ) -> Version | None:
     for version in versions:
-        if "release" not in version.version:
-            continue
         if supported_versions is None or version.version in supported_versions:
             return version
 
@@ -111,21 +109,18 @@ def process(
         else None
     )
     patch_list = format_patch_list(patches, previous_patches)
-    marker_note = (
-        "New patches are marked **NEW**."
-        if previous_patches is not None
-        else "New patch markers are unavailable because the previous release did not include patches-list.json."
-    )
+    marker_note = "New patches are marked **NEW**." if previous_patches is not None else ""
     commit_list = format_commit_list(
         get_piko_commits(previous_release, piko_build.commit)
     )
-    commit_section = f"{commit_list}\n\n" if commit_list else ""
+    additional_notes = "\n\n".join(
+        note for note in (marker_note, commit_list) if note
+    )
+    additional_notes = f"\n\n{additional_notes}" if additional_notes else ""
     message = f"""Patches applied:
-{patch_list}
+{patch_list}{additional_notes}
 
-{marker_note}
-
-{commit_section}Piko source:
+Piko source:
 [x-lite@{piko_commit}](https://github.com/crimera/piko/commit/{piko_build.commit})
 """
 
@@ -145,9 +140,9 @@ def main():
     # Build the same Piko revision that will be used for patching first.  Its
     # compatibility targets determine which X APK can actually be patched.
     piko_build = build_piko_patches()
-    latest_version = get_latest_release(versions, piko_build.supported_versions)
+    latest_version = get_latest_version(versions, piko_build.supported_versions)
     if latest_version is None:
-        raise Exception("No X release is supported by the Piko x-lite patches")
+        raise Exception("No X version is supported by the Piko x-lite patches")
 
     release_tag = f"{latest_version.version}-{piko_build.commit[:7]}"
     last_build_version: github.GithubRelease | None = github.get_last_build_version(REPO)
