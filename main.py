@@ -117,13 +117,10 @@ def process(
         else None
     )
     patch_list = format_patch_list(patches, previous_patches)
-    marker_note = "New patches are marked **NEW**." if previous_patches is not None else ""
     commit_list = format_commit_list(
         get_piko_commits(previous_release, piko_build.commit)
     )
-    additional_notes = "\n\n".join(
-        note for note in (marker_note, commit_list) if note
-    )
+    additional_notes = commit_list
     additional_notes = f"\n\n{additional_notes}" if additional_notes else ""
     message = f"""Patches applied:
 {patch_list}{additional_notes}
