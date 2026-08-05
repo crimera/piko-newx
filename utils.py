@@ -85,6 +85,8 @@ def patch_apk(
         "jhc",
         # Let Morphe attempt patches targeting an older X version.
         "--force",
+        # Avoid enabling unrelated default patches when forcing compatibility.
+        "--exclusive",
     ]
 
     if includes is not None:
