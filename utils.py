@@ -83,6 +83,8 @@ def patch_apk(
         "jhc",
         "--keystore-entry-alias",
         "jhc",
+        # Let Morphe attempt patches targeting an older X version.
+        "--force",
     ]
 
     if includes is not None:
