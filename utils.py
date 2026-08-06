@@ -4,7 +4,21 @@ import subprocess
 import sys
 
 import requests
+
 _scraper = None
+
+
+def github_api_headers() -> dict[str, str]:
+    """Return authenticated headers for GitHub API requests when available."""
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    return headers
+
 
 def get_scraper():
     global _scraper

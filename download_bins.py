@@ -2,7 +2,7 @@ import re
 
 import requests
 
-from utils import download
+from utils import download, github_api_headers
 
 
 def download_release_asset(
@@ -15,9 +15,22 @@ def download_release_asset(
 ):
     url = f"https://api.github.com/repos/{repo}/releases"
 
-    response = requests.get(url)
+    response = requests.get(
+        url,
+        headers=github_api_headers(),
+        timeout=30,
+    )
     if response.status_code != 200:
-        raise Exception("Failed to fetch github")
+        remaining = response.headers.get("x-ratelimit-remaining")
+        reset = response.headers.get("x-ratelimit-reset")
+        detail = (
+            f" (remaining={remaining}, reset={reset})"
+            if remaining is not None
+            else ""
+        )
+        raise Exception(
+            f"Failed to fetch GitHub releases: {response.status_code}{detail}"
+        )
 
     releases = [r for r in response.json() if include_prereleases or not r["prerelease"]]
 

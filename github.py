@@ -2,7 +2,8 @@ from dataclasses import dataclass
 from urllib.parse import quote
 
 import requests
-from constants import HEADERS
+
+from utils import github_api_headers
 
 REQUEST_TIMEOUT_SECONDS = 30
 
@@ -39,7 +40,11 @@ def _to_github_release(release) -> GithubRelease:
 
 
 def _fetch_release(url: str) -> GithubRelease | None:
-    response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SECONDS)
+    response = requests.get(
+        url,
+        headers=github_api_headers(),
+        timeout=REQUEST_TIMEOUT_SECONDS,
+    )
 
     if response.status_code == 404:
         return None
@@ -63,7 +68,11 @@ def get_commits_between(
     repo_url: str, base: str, head: str
 ) -> list[GithubCommit] | None:
     url = f"https://api.github.com/repos/{repo_url}/compare/{base}...{head}"
-    response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SECONDS)
+    response = requests.get(
+        url,
+        headers=github_api_headers(),
+        timeout=REQUEST_TIMEOUT_SECONDS,
+    )
     if response.status_code == 404:
         return None
     response.raise_for_status()
@@ -109,9 +118,11 @@ def get_release_asset_json(
     if asset is None:
         return None
 
+    # This is a browser download URL, not an API endpoint; do not send the
+    # GitHub token to it (or to any redirect target).
     response = requests.get(
         asset.browser_download_url,
-        headers={"accept": "application/octet-stream"},
+        headers={"Accept": "application/octet-stream"},
         timeout=REQUEST_TIMEOUT_SECONDS,
     )
     response.raise_for_status()
