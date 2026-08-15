@@ -7,8 +7,6 @@ from utils import patch_apk
 
 XLITE_PATCH_NAME = re.compile(r"^Name:\s*(X-Lite:\s*.+?)\s*$", re.MULTILINE)
 
-BRING_BACK_TWITTER_PATCH = "Bring back twitter"
-
 
 def get_xlite_patches(cli: str, patches: str) -> list[str]:
     result = subprocess.run(
@@ -37,7 +35,6 @@ def build_apks(latest_version: Version, apk: str, piko_commit: str) -> list[str]
     patches = "bins/patches.mpp"
     cli = "bins/morphe-cli.jar"
     includes = get_xlite_patches(cli, patches)
-    includes.append(BRING_BACK_TWITTER_PATCH)
 
     patch_apk(
         cli,
