@@ -5,7 +5,7 @@ from apkmirror import Version
 from utils import patch_apk
 
 
-XLITE_PATCH_NAME = re.compile(r"^Name:\s*(X-Lite:\s*.+?)\s*$", re.MULTILINE)
+XLITE_PATCH_NAME = re.compile(r"^Name:\s*(NewX:\s*.+?)\s*$", re.MULTILINE)
 
 
 def get_xlite_patches(cli: str, patches: str) -> list[str]:
@@ -27,7 +27,7 @@ def get_xlite_patches(cli: str, patches: str) -> list[str]:
     output = result.stdout + result.stderr
     includes = list(dict.fromkeys(XLITE_PATCH_NAME.findall(output)))
     if not includes:
-        raise RuntimeError("Morphe returned no X-Lite patches")
+        raise RuntimeError("Morphe returned no NewX patches")
     return includes
 
 

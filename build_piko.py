@@ -10,7 +10,7 @@ PIKO_REPO = "crimera/piko"
 PIKO_REPOSITORY = f"https://github.com/{PIKO_REPO}.git"
 PIKO_BRANCH = "x-lite"
 XLITE_CONSTANTS = (
-    "patches/src/main/kotlin/app/crimera/patches/xlite/utils/Constants.kt"
+    "patches/src/main/kotlin/app/crimera/patches/newx/utils/Constants.kt"
 )
 
 

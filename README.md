@@ -1,6 +1,6 @@
-Builds patched Twitter/X APKs using [Piko](https://github.com/crimera/piko) patches from the `x-lite` branch.
+Builds APKs with NewX on Android compatible patches from the [Piko `x-lite` branch](https://github.com/crimera/piko/tree/x-lite).
 
-[Latest Build Download](https://github.com/crimera/twitter-apk/releases/latest)
+[Latest Build Download](https://github.com/crimera/x-lite-apk/releases/latest)
 
 # Credits
 - [morphe](https://github.com/MorpheApp) - patcher
