@@ -56,12 +56,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG=$(gh release list --limit 1 --json tagName --jq '.[0].tagName')
-          XVER=${TAG%%-*}
           NOW=$(date -u +%Y-%m-%dT%H:%M:%S)
           REPO="${{ github.repository }}"
           cat > patches-bundle.json <<EOF
           {
-            "version": "${XVER}",
+            "version": "${TAG}",
             "download_url": "https://github.com/${REPO}/releases/download/${TAG}/patches.mpp",
             "created_at": "${NOW}",
             "description": "Piko x-lite patch bundle for Morphe (${TAG}).",

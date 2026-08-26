@@ -1,4 +1,4 @@
-# [12.19.1](https://github.com/crimera/piko-newx/releases/tag/12.19.1-release.0-56f2321) (2026-08-26)
+# [12.19.1-release.0-56f2321](https://github.com/crimera/piko-newx/releases/tag/12.19.1-release.0-56f2321) (2026-08-26)
 
 ### Commits
 * [`8f55018`](https://github.com/crimera/piko/commit/8f55018a812f34519d5ae93da6d7039d9c505292) feat(newx): add BottomSheetView component and update media picker dialog
@@ -6,7 +6,7 @@
 * [`df606e4`](https://github.com/crimera/piko/commit/df606e42ad860964969d565dfc01705ca92648d7) fix(newx): support registers >= v16 in injectReadWithDefault
 * [`56f2321`](https://github.com/crimera/piko/commit/56f2321326e3d5e5241c24977028d1e34bc71dc8) feat(newx): add patch to force highest video and audio quality
 
-# [12.18.0](https://github.com/crimera/piko-newx/releases/tag/12.18.0-beta.0-e8e5496) (2026-08-26)
+# [12.18.0-beta.0-e8e5496](https://github.com/crimera/piko-newx/releases/tag/12.18.0-beta.0-e8e5496) (2026-08-26)
 
 ### Commits
 * [`247cdfd`](https://github.com/crimera/piko/commit/247cdfdf5da70f191c485c2b18b4cc1c58839370) fix(xlite): unbind Compose reply sort UI state from unstable package

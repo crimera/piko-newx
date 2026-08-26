@@ -133,7 +133,7 @@ def process(
     commits = get_piko_commits(previous_release, piko_build.commit)
 
     update_changelog(
-        version=latest_version.version,
+        version=release_tag,
         tag=release_tag,
         new_patches=new_patches,
         commits=commits,
