@@ -1,4 +1,4 @@
-Builds and publishes the [NewX](https://github.com/crimera/piko/tree/x-lite) patch bundle for Piko `x-lite` from the [Piko `x-lite` branch](https://github.com/crimera/piko/tree/x-lite).
+Builds and publishes the [NewX](https://github.com/crimera/piko/tree/x-lite) patch bundle from the [Piko `x-lite` branch](https://github.com/crimera/piko/tree/x-lite).
 
 [Latest Release](https://github.com/crimera/x-lite-apk/releases/latest)
 
