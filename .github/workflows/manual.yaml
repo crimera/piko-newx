@@ -35,10 +35,19 @@ jobs:
       - name: Install dependencies
         run: uv sync --frozen
 
+      - name: Import GPG key
+        if: ${{ secrets.GPG_PRIVATE_KEY != '' }}
+        uses: crazy-max/ghaction-import-gpg@v7
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          fingerprint: ${{ vars.GPG_FINGERPRINT }}
+
       - name: Try building
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GRADLE_OPTS: -Dorg.gradle.caching=true
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
           mkdir -p bins
           uv run main.py --m 1 --v ${{ github.event.inputs.version_input }}

@@ -1,4 +1,5 @@
 import os
+import shutil
 import subprocess
 import sys
 
@@ -67,6 +68,41 @@ def run_command(command: list[str]):
         print(cmd.stdout)
         print(cmd.stderr)
         exit(1)
+
+
+def sign_artifact(path: str) -> str | None:
+    """Create a detached, ASCII-armored GPG signature for a release artifact.
+
+    Mirrors how Morphe/Piko ship a ``<bundle>.mpp.asc`` next to the patch bundle.
+    Returns the ``.asc`` path, or ``None`` when signing is unavailable (no gpg,
+    no key, or signing fails). Signing failures are non-fatal so the unsigned
+    bundle still ships.
+    """
+    asc_path = f"{path}.asc"
+    if not shutil.which("gpg"):
+        print("gpg not found; skipping detached signature")
+        return None
+
+    command = [
+        "gpg", "--batch", "--yes", "--armor", "--detach-sign",
+        "--output", asc_path, path,
+    ]
+    passphrase = os.environ.get("GPG_PASSPHRASE")
+    if passphrase:
+        command = [
+            "gpg", "--batch", "--yes", "--armor", "--detach-sign",
+            "--pinentry-mode", "loopback",
+            "--passphrase", passphrase,
+            "--output", asc_path, path,
+        ]
+
+    try:
+        subprocess.run(command, check=True, capture_output=True)
+    except subprocess.CalledProcessError as error:
+        stderr = error.stderr.decode("utf-8", "replace").strip()
+        print(f"Warning: GPG signing failed, releasing unsigned: {stderr}")
+        return None
+    return asc_path
 
 
 def publish_release(tag: str, files: list[str], message: str, title = ""):

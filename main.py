@@ -9,7 +9,7 @@ from build_piko import PIKO_REPO, PikoBuild, build_piko_patches
 from build_variants import get_xlite_patches
 from constants import REPO
 from download_bins import download_morphe_cli
-from utils import publish_release
+from utils import publish_release, sign_artifact
 
 
 PATCHES_LIST_ASSET = "patches-list.json"
@@ -99,9 +99,12 @@ Piko source:
 [x-lite@{piko_commit}](https://github.com/crimera/piko/commit/{piko_build.commit})
 """
 
+    signature = sign_artifact(PATCHES_MPP)
+    release_assets = [PATCHES_MPP, *( [signature] if signature else [] )]
+
     publish_release(
         release_tag,
-        [PATCHES_MPP],
+        release_assets,
         message,
         release_tag,
     )
