@@ -1,9 +1,6 @@
 import re
 import subprocess
 
-from apkmirror import Version
-from utils import patch_apk
-
 
 XLITE_PATCH_NAME = re.compile(r"^Name:\s*(NewX:\s*.+?)\s*$", re.MULTILINE)
 
@@ -31,19 +28,3 @@ def get_xlite_patches(cli: str, patches: str) -> list[str]:
     return includes
 
 
-def build_apks(latest_version: Version, apk: str, piko_commit: str) -> list[str]:
-    patches = "bins/patches.mpp"
-    cli = "bins/morphe-cli.jar"
-    includes = get_xlite_patches(cli, patches)
-
-    patch_apk(
-        cli,
-        patches,
-        apk,
-        includes=includes,
-        excludes=[],
-        out=f"piko-lite-v{latest_version.version}-{piko_commit[:7]}.apk",
-        minimum_patches=len(includes),
-    )
-
-    return includes

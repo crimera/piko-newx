@@ -1,16 +1,15 @@
 from argparse import ArgumentParser
 import json
-import os
 from pathlib import Path
 
 import apkmirror
 import github
-from apkmirror import Variant, Version
+from apkmirror import Version
 from build_piko import PIKO_REPO, PikoBuild, build_piko_patches
-from build_variants import build_apks
+from build_variants import get_xlite_patches
 from constants import REPO
 from download_bins import download_morphe_cli
-from utils import panic, publish_release
+from utils import publish_release
 
 
 PATCHES_LIST_ASSET = "patches-list.json"
@@ -23,21 +22,6 @@ def get_latest_version(
     for version in versions:
         if supported_versions is None or version.version in supported_versions:
             return version
-
-
-def get_bundle_variant(variants: list[Variant]) -> Variant | None:
-    universal_bundle = next(
-        (
-            variant
-            for variant in variants
-            if variant.is_bundle and variant.architecture == "universal"
-        ),
-        None,
-    )
-    if universal_bundle is not None:
-        return universal_bundle
-
-    return next((variant for variant in variants if variant.is_bundle), None)
 
 
 def format_patch_list(
@@ -88,27 +72,13 @@ def process(
     piko_build: PikoBuild,
     previous_release: github.GithubRelease | None = None,
 ):
-    variants: list[Variant] = apkmirror.get_variants(latest_version)
-
-    download_link = get_bundle_variant(variants)
-    if download_link is None:
-        raise Exception("APK bundle not found")
-
-    # Keep the input version-specific so a retry cannot accidentally patch a
-    # stale APK left by an earlier build.
-    apk_path = f"big_file-{latest_version.version}.apkm"
-    apkmirror.download_apk(download_link, path=apk_path)
-    if not os.path.exists(apk_path):
-        panic("Failed to download apkm")
+    piko_commit = piko_build.commit[:7]
+    release_tag = f"{latest_version.version}-{piko_commit}"
 
     download_morphe_cli(include_prereleases=True)
 
-    piko_commit = piko_build.commit[:7]
-    release_tag = f"{latest_version.version}-{piko_commit}"
-    apk_name = f"piko-lite-v{latest_version.version}-{piko_commit}.apk"
-
     print(f"Using Piko x-lite@{piko_commit}")
-    patches = build_apks(latest_version, apk_path, piko_build.commit)
+    patches = get_xlite_patches("bins/morphe-cli.jar", PATCHES_MPP)
     write_patches_list(patches)
 
     previous_patches = (
@@ -131,7 +101,7 @@ Piko source:
 
     publish_release(
         release_tag,
-        [apk_name, PATCHES_MPP, PATCHES_LIST_ASSET],
+        [PATCHES_MPP],
         message,
         release_tag,
     )

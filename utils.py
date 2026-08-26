@@ -1,5 +1,4 @@
 import os
-import re
 import subprocess
 import sys
 
@@ -68,71 +67,6 @@ def run_command(command: list[str]):
         print(cmd.stdout)
         print(cmd.stderr)
         exit(1)
-
-
-def patch_apk(
-    cli: str,
-    patches: str,
-    apk: str,
-    includes: list[str] | None = None,
-    excludes: list[str] | None = None,
-    out: str | None = None,
-    minimum_patches: int | None = None,
-):
-    command = [
-        "java",
-        "-jar",
-        cli,
-        "patch",
-        "-p",
-        patches,
-        # use j-hc's keystore so we wouldn't need to reinstall
-        "--keystore",
-        "ks.keystore",
-        "--keystore-entry-password",
-        "123456789",
-        "--keystore-password",
-        "123456789",
-        "--signer",
-        "jhc",
-        "--keystore-entry-alias",
-        "jhc",
-        # Let Morphe attempt patches targeting an older X version.
-        "--force",
-        # Avoid enabling unrelated default patches when forcing compatibility.
-        "--exclusive",
-    ]
-
-    if includes is not None:
-        for i in includes:
-            command.append("-e")
-            command.append(i)
-
-    if excludes is not None:
-        for e in excludes:
-            command.append("-d")
-            command.append(e)
-
-    if out is not None:
-        command.extend(["--out", out])
-
-    command.append(apk)
-    result = subprocess.run(command, text=True, capture_output=True)
-    print(result.stdout, end="")
-    print(result.stderr, end="", file=sys.stderr)
-    result.check_returncode()
-
-    if minimum_patches is not None:
-        output = result.stdout + result.stderr
-        match = re.search(r"Applying\s+(\d+)\s+patches?", output, re.IGNORECASE)
-        applied = int(match.group(1)) if match else 0
-        if applied < minimum_patches:
-            raise RuntimeError(
-                f"Morphe applied {applied} patches; expected at least {minimum_patches}"
-            )
-
-    if out is not None and not os.path.exists(out):
-        raise FileNotFoundError(f"Morphe did not create the expected output: {out}")
 
 
 def publish_release(tag: str, files: list[str], message: str, title = ""):

@@ -1,6 +1,6 @@
-Builds APKs with NewX on Android compatible patches from the [Piko `x-lite` branch](https://github.com/crimera/piko/tree/x-lite).
+Builds and publishes the [NewX](https://github.com/crimera/piko/tree/x-lite) patch bundle for Piko `x-lite` from the [Piko `x-lite` branch](https://github.com/crimera/piko/tree/x-lite).
 
-[Latest Build Download](https://github.com/crimera/x-lite-apk/releases/latest)
+[Latest Release](https://github.com/crimera/x-lite-apk/releases/latest)
 
 # Credits
 - [morphe](https://github.com/MorpheApp) - patcher
