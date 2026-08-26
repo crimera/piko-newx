@@ -51,7 +51,7 @@ jobs:
           mkdir -p bins
           uv run main.py --m 1 --v ${{ github.event.inputs.version_input }}
 
-      - name: Update patches-bundle.json
+      - name: Update patches-bundle.json and CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -70,6 +70,6 @@ jobs:
           EOF
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add patches-bundle.json
-          git commit -m "chore: update patches-bundle.json for ${TAG}" || echo "no changes"
+          git add patches-bundle.json CHANGELOG.md
+          git commit -m "chore: update patches-bundle.json and CHANGELOG.md for ${TAG}" || echo "no changes"
           git push

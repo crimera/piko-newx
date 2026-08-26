@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from datetime import datetime, timezone
 import json
 from pathlib import Path
 
@@ -12,6 +13,7 @@ from download_bins import download_morphe_cli
 from utils import publish_release, sign_artifact
 
 
+CHANGELOG_FILE = "CHANGELOG.md"
 PATCHES_LIST_ASSET = "patches-list.json"
 PATCHES_MPP = "bins/patches.mpp"
 
@@ -67,6 +69,43 @@ def format_commit_list(commits: list[github.GithubCommit] | None) -> str:
     return f"Piko commits since previous release:\n{entries}"
 
 
+def update_changelog(
+    version: str,
+    tag: str,
+    new_patches: list[str],
+    commits: list[github.GithubCommit] | None,
+    repo: str = REPO,
+) -> None:
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    heading = f"# [{version}](https://github.com/{repo}/releases/tag/{tag}) ({today})"
+
+    sections: list[str] = []
+
+    if new_patches:
+        patch_bullets = "\n".join(f"* **Twitter:** {patch}" for patch in new_patches)
+        sections.append(f"### New Patches\n{patch_bullets}")
+
+    if commits:
+        commit_bullets = "\n".join(
+            f"* [`{commit.sha[:7]}`]({commit.html_url}) {commit.subject}"
+            for commit in commits
+        )
+        sections.append(f"### Commits\n{commit_bullets}")
+
+    body = "\n\n".join(sections) if sections else "* No new patches or commits."
+    entry = f"{heading}\n\n{body}\n\n"
+
+    changelog_path = Path(CHANGELOG_FILE)
+    existing = (
+        changelog_path.read_text(encoding="utf-8")
+        if changelog_path.exists()
+        else ""
+    )
+
+    if heading not in existing:
+        changelog_path.write_text(entry + existing, encoding="utf-8")
+
+
 def process(
     latest_version: Version,
     piko_build: PikoBuild,
@@ -86,10 +125,22 @@ def process(
         if previous_release is not None
         else None
     )
-    patch_list = format_patch_list(patches, previous_patches)
-    commit_list = format_commit_list(
-        get_piko_commits(previous_release, piko_build.commit)
+    new_patches = (
+        [p for p in patches if p not in set(previous_patches)]
+        if previous_patches is not None
+        else patches
     )
+    commits = get_piko_commits(previous_release, piko_build.commit)
+
+    update_changelog(
+        version=latest_version.version,
+        tag=release_tag,
+        new_patches=new_patches,
+        commits=commits,
+    )
+
+    patch_list = format_patch_list(patches, previous_patches)
+    commit_list = format_commit_list(commits)
     additional_notes = commit_list
     additional_notes = f"\n\n{additional_notes}" if additional_notes else ""
     message = f"""Patches applied:
@@ -100,7 +151,7 @@ Piko source:
 """
 
     signature = sign_artifact(PATCHES_MPP)
-    release_assets = [PATCHES_MPP, *( [signature] if signature else [] )]
+    release_assets = [PATCHES_MPP, PATCHES_LIST_ASSET, *( [signature] if signature else [] )]
 
     publish_release(
         release_tag,
