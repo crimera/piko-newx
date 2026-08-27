@@ -30,6 +30,38 @@ def get_supported_versions(constants: str) -> frozenset[str]:
     return versions
 
 
+def pre_build_cleanup(piko_directory: Path) -> None:
+    """Remove Instagram, Twitter, and legacy patches/extensions before building."""
+    # Remove non-NewX patch source packages
+    for path in [
+        piko_directory / "patches/src/main/kotlin/app/crimera/patches/instagram",
+        piko_directory / "patches/src/main/kotlin/app/crimera/patches/twitter",
+        piko_directory / "patches/src/main/kotlin/app/revanced",
+    ]:
+        if path.exists():
+            shutil.rmtree(path)
+
+    # Remove non-NewX extension modules
+    for path in [
+        piko_directory / "extensions/instagram",
+        piko_directory / "extensions/twitter",
+    ]:
+        if path.exists():
+            shutil.rmtree(path)
+
+    # Clean up legacy resources
+    twitter_res = piko_directory / "patches/src/main/resources/twitter"
+    if twitter_res.exists():
+        shutil.rmtree(twitter_res)
+
+    addresources_dir = piko_directory / "patches/src/main/resources/addresources"
+    if addresources_dir.exists():
+        for res_name in ("instagram", "twitter", "twitter-bring-back"):
+            for matched in addresources_dir.glob(f"*/{res_name}"):
+                if matched.is_dir():
+                    shutil.rmtree(matched)
+
+
 def build_piko_patches(output: str = "bins/patches.mpp") -> PikoBuild:
     output_path = Path(output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -54,6 +86,8 @@ def build_piko_patches(output: str = "bins/patches.mpp") -> PikoBuild:
         supported_versions = get_supported_versions(
             (piko_directory / XLITE_CONSTANTS).read_text()
         )
+
+        pre_build_cleanup(piko_directory)
 
         subprocess.run(
             ["./gradlew", "clean", "buildAndroid"],
