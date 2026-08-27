@@ -1,7 +1,7 @@
 {
-  "version": "12.19.1-release.0-56f2321",
-  "download_url": "https://github.com/crimera/piko-newx/releases/download/12.19.1-release.0-56f2321/patches.mpp",
-  "created_at": "2026-08-26T16:31:25",
-  "description": "Piko x-lite patch bundle for Morphe (12.19.1-release.0-56f2321).",
-  "signature_download_url": "https://github.com/crimera/piko-newx/releases/download/12.19.1-release.0-56f2321/patches.mpp.asc"
+  "version": "12.19.1-release.0-b1f727c",
+  "download_url": "https://github.com/crimera/piko-newx/releases/download/12.19.1-release.0-b1f727c/patches.mpp",
+  "created_at": "2026-08-27T07:08:15",
+  "description": "Piko x-lite patch bundle for Morphe (12.19.1-release.0-b1f727c).",
+  "signature_download_url": "https://github.com/crimera/piko-newx/releases/download/12.19.1-release.0-b1f727c/patches.mpp.asc"
 }

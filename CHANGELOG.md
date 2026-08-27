@@ -1,3 +1,40 @@
+# [12.19.1-release.0-b1f727c](https://github.com/crimera/piko-newx/releases/tag/12.19.1-release.0-b1f727c) (2026-08-27)
+
+### New Patches
+* **Twitter:** NewX: Remove ads
+* **Twitter:** NewX: Browse tweet object
+* **Twitter:** NewX: Open canonical URLs
+* **Twitter:** NewX: Custom font
+* **Twitter:** NewX: Custom sharing domain
+* **Twitter:** NewX: Customize drawer items
+* **Twitter:** NewX: Dynamic color
+* **Twitter:** NewX: Feature switch overrides
+* **Twitter:** NewX: Customize inline actions
+* **Twitter:** NewX: Inline download button
+* **Twitter:** NewX: Force highest video/audio quality
+* **Twitter:** NewX: Customize default media tab
+* **Twitter:** NewX: Customize navigation bar items
+* **Twitter:** NewX: Customize default reply sorting
+* **Twitter:** NewX: Share post as image
+* **Twitter:** NewX: Hide premium upsell
+* **Twitter:** NewX: Unlock downloads
+* **Twitter:** NewX: Disable automatic timeline refresh
+* **Twitter:** NewX: Filter For You by topic
+* **Twitter:** NewX: Hide AI-generated posts
+* **Twitter:** NewX: Hide Discover more
+* **Twitter:** NewX: Hide compose button
+* **Twitter:** NewX: Hide new posts pill
+* **Twitter:** NewX: Hide Spaces bar
+* **Twitter:** NewX: Hide who to follow
+* **Twitter:** NewX: Restore timeline position
+* **Twitter:** NewX: Show sensitive media
+* **Twitter:** NewX: Filter posts by keyword
+
+### Commits
+* [`20d89d3`](https://github.com/crimera/piko/commit/20d89d310a2ad7f8afba1b5b98437c40b0159b48) fix(newx): make force highest video quality resilient across 12.17-12.19 and fix VerifyError
+* [`d094d4e`](https://github.com/crimera/piko/commit/d094d4e372d02ad942fd401a8415973dea31171e) feat(newx): update checkbox element to match Twitter circular style with dynamic tint
+* [`b1f727c`](https://github.com/crimera/piko/commit/b1f727c4f47cd15f8fe23ae6c9c7e5417ae48c66) fix(newx): route video downloads to Movies directory for MediaStore compliance
+
 # [12.19.1-release.0-56f2321](https://github.com/crimera/piko-newx/releases/tag/12.19.1-release.0-56f2321) (2026-08-26)
 
 ### Commits
