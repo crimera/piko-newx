@@ -1,3 +1,11 @@
+# [12.19.1-release.0-229b738](https://github.com/crimera/piko-newx/releases/tag/12.19.1-release.0-229b738) (2026-08-28)
+
+### New Patches
+* **Twitter:** NewX: Disable video player scrolling
+
+### Commits
+* [`229b738`](https://github.com/crimera/piko/commit/229b738ca4152b826765d18f4676c0d4e58748fd) feat(newx): add video player scroll toggle
+
 # [12.19.1-release.0-b1f727c](https://github.com/crimera/piko-newx/releases/tag/12.19.1-release.0-b1f727c) (2026-08-27)
 
 ### New Patches
