@@ -1,3 +1,9 @@
+# [12.22.0-beta.01-d628357](https://github.com/crimera/piko-newx/releases/tag/12.22.0-beta.01-d628357) (2026-08-30)
+
+### Commits
+* [`3ef30b7`](https://github.com/crimera/piko/commit/3ef30b795c40ab371497789d019c8188b9df4ef1) fix(newx): preserve initial timeline load on fresh start while suppressing auto-refresh
+* [`d628357`](https://github.com/crimera/piko/commit/d628357ababe4866c654fd4be64d5a066b43485f) fix(newx): correct inverted branch in URT repository auto-refresh filter
+
 # [12.22.0-beta.01-f7a090a](https://github.com/crimera/piko-newx/releases/tag/12.22.0-beta.01-f7a090a) (2026-08-30)
 
 ### Commits
