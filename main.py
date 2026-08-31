@@ -26,16 +26,12 @@ def get_latest_version(
             return version
 
 
-def format_patch_list(
-    patches: list[str], previous_patches: list[str] | None
-) -> str:
-    known_patches = set(previous_patches or [])
-    mark_new_patches = previous_patches is not None
+def format_new_patch_list(patches: list[str]) -> str:
+    if not patches:
+        return ""
 
-    return "\n".join(
-        f"- {'**NEW** ' if mark_new_patches and patch not in known_patches else ''}{patch}"
-        for patch in patches
-    )
+    entries = "\n".join(f"- {patch}" for patch in patches)
+    return f"New patches:\n{entries}"
 
 
 def write_patches_list(patches: list[str]) -> None:
@@ -81,16 +77,16 @@ def update_changelog(
 
     sections: list[str] = []
 
-    if new_patches:
-        patch_bullets = "\n".join(f"* **Twitter:** {patch}" for patch in new_patches)
-        sections.append(f"### New Patches\n{patch_bullets}")
-
     if commits:
         commit_bullets = "\n".join(
             f"* [`{commit.sha[:7]}`]({commit.html_url}) {commit.subject}"
             for commit in commits
         )
         sections.append(f"### Commits\n{commit_bullets}")
+
+    if new_patches:
+        patch_bullets = "\n".join(f"* **Twitter:** {patch}" for patch in new_patches)
+        sections.append(f"### New Patches\n{patch_bullets}")
 
     body = "\n\n".join(sections) if sections else "* No new patches or commits."
     entry = f"{heading}\n\n{body}\n\n"
@@ -139,14 +135,12 @@ def process(
         commits=commits,
     )
 
-    patch_list = format_patch_list(patches, previous_patches)
+    patch_list = format_new_patch_list(new_patches)
     commit_list = format_commit_list(commits)
-    additional_notes = commit_list
-    additional_notes = f"\n\n{additional_notes}" if additional_notes else ""
-    message = f"""Patches applied:
-{patch_list}{additional_notes}
-
-Piko source:
+    release_sections = [section for section in (commit_list, patch_list) if section]
+    additional_notes = "\n\n".join(release_sections)
+    additional_notes = f"{additional_notes}\n\n" if additional_notes else ""
+    message = f"""{additional_notes}Piko source:
 [x-lite@{piko_commit}](https://github.com/crimera/piko/commit/{piko_build.commit})
 """
 
