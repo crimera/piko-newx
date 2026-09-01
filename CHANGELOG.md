@@ -1,3 +1,8 @@
+# [12.22.0-beta.01-dfc8c56](https://github.com/crimera/piko-newx/releases/tag/12.22.0-beta.01-dfc8c56) (2026-09-01)
+
+### Commits
+* [`dfc8c56`](https://github.com/crimera/piko/commit/dfc8c562dc3dcd9397c65e43ebacc8db12980a1c) fix(newx): support Twitter 12.21.1-prod.05
+
 # [12.22.0-beta.01-d628357](https://github.com/crimera/piko-newx/releases/tag/12.22.0-beta.01-d628357) (2026-08-30)
 
 ### Commits
