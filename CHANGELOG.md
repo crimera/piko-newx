@@ -1,3 +1,14 @@
+# [12.22.0-prod.01-3a3fa60](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-3a3fa60) (2026-09-03)
+
+### Commits
+* [`708a820`](https://github.com/crimera/piko/commit/708a820b56b44a06e4ab257b27ad54a3d1314865) feat(newx): reuse app image cache for media thumbnails
+* [`d006d98`](https://github.com/crimera/piko/commit/d006d985fb4f292e76a971920e7291dedb045cea) fix(newx): reserve parameter registers in cache bridge
+* [`ace36be`](https://github.com/crimera/piko/commit/ace36be891b402a285f8044b5c03a2aa1f5021f0) debug(newx): log media thumbnail loading state
+* [`a9bb154`](https://github.com/crimera/piko/commit/a9bb1546d87618e760e6a4c2d6ab4216c78314cc) refactor(newx): isolate Coil thumbnail cache bridge
+* [`c3fddd2`](https://github.com/crimera/piko/commit/c3fddd2ca39943d5312c21e9748fe662358cc63d) feat(newx): add configurable logging
+* [`c4897ba`](https://github.com/crimera/piko/commit/c4897ba51a5ef5ed8814f3074affd989b5d9cdb0) chore(newx): hide cache bridge dependency
+* [`3a3fa60`](https://github.com/crimera/piko/commit/3a3fa609f83d4d1a899748de32aa0a81be3c99d7) fix(newx): simplify inline settings
+
 # [12.22.0-prod.01-f384055](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-f384055) (2026-09-03)
 
 ### Commits
