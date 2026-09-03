@@ -1,3 +1,10 @@
+# [12.22.0-prod.01-f384055](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-f384055) (2026-09-03)
+
+### Commits
+* [`18b28ae`](https://github.com/crimera/piko/commit/18b28ae3ce9f8c35660af7a70ccc788f6837eef0) feat(newx): show media thumbnails in download picker
+* [`4e952a1`](https://github.com/crimera/piko/commit/4e952a1ca281fcd52c76c5df8f8447af730982c7) feat(newx): add thumbnail loading setting
+* [`f384055`](https://github.com/crimera/piko/commit/f384055ecec0e2e6447986a30ddf43cfaa2f835f) feat(newx): group inline download settings
+
 # [12.22.0-prod.01-b64d10b](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-b64d10b) (2026-09-03)
 
 ### Commits
