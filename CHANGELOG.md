@@ -1,3 +1,9 @@
+# [12.22.0-prod.01-b64d10b](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-b64d10b) (2026-09-03)
+
+### Commits
+* [`9e07558`](https://github.com/crimera/piko/commit/9e0755891fb27d7aacb720d1b242aad023822640) feat(newx): add Grok button to customizable drawer items
+* [`b64d10b`](https://github.com/crimera/piko/commit/b64d10b74d150035129c92361f7ebd0895b3f63a) feat(newx): add theme toggle to customizable drawer items
+
 # [12.22.0-prod.01-1ea926c](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-1ea926c) (2026-09-03)
 
 ### Commits
