@@ -1,3 +1,9 @@
+# [12.22.0-prod.01-1ea926c](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-1ea926c) (2026-09-03)
+
+### Commits
+* [`09e359e`](https://github.com/crimera/piko/commit/09e359e87de37169916f2a213aca6ba20d554fab) fix(newx): reorder timeline scrolling and refresh settings
+* [`1ea926c`](https://github.com/crimera/piko/commit/1ea926cd17b8dab9888cc22917111d8ebf5ebeec) feat(newx): add compatibility for 12.22.0-prod.01
+
 # [12.22.0-beta.01-dfc8c56](https://github.com/crimera/piko-newx/releases/tag/12.22.0-beta.01-dfc8c56) (2026-09-01)
 
 ### Commits
