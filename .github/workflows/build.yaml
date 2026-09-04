@@ -3,6 +3,10 @@ name: Release - Piko Lite
 on:
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -12,6 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up java
         uses: actions/setup-java@v4
@@ -38,33 +44,50 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
           fingerprint: ${{ vars.GPG_FINGERPRINT }}
 
-      - name: Try building
+      - name: Generate release version
+        id: release_version
+        env:
+          FORCE_PATCH: "true"
+        run: |
+          set -euo pipefail
+          chmod +x .github/scripts/generate-changelog.sh
+          .github/scripts/generate-changelog.sh \
+            2>/tmp/release-version-output \
+            >/tmp/release-changelog-output
+
+          cat /tmp/release-version-output
+          NEW_VERSION=$(grep -E '^v[0-9]+\.[0-9]+\.[0-9]+' /tmp/release-version-output | tail -n1)
+          SEMANTIC_BUMP=$(grep '^semantic_bump=' /tmp/release-version-output | tail -n1 | cut -d= -f2)
+
+          test -n "$NEW_VERSION"
+          test -n "$SEMANTIC_BUMP"
+          echo "new_version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+          echo "semantic_bump=$SEMANTIC_BUMP" >> "$GITHUB_OUTPUT"
+
+      - name: Build and publish release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GRADLE_OPTS: -Dorg.gradle.caching=true
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
           mkdir -p bins
-          uv run main.py
+          uv run main.py \
+            --release-tag "${{ steps.release_version.outputs.new_version }}" \
+            --semantic-bump "${{ steps.release_version.outputs.semantic_bump }}" \
+            --changelog-file /tmp/release-changelog-output
 
-      - name: Update patches-bundle.json and CHANGELOG.md
+      - name: Commit release metadata
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG=$(gh release list --limit 1 --json tagName --jq '.[0].tagName')
-          NOW=$(date -u +%Y-%m-%dT%H:%M:%S)
-          REPO="${{ github.repository }}"
-          cat > patches-bundle.json <<EOF
-          {
-            "version": "${TAG}",
-            "download_url": "https://github.com/${REPO}/releases/download/${TAG}/patches.mpp",
-            "created_at": "${NOW}",
-            "description": "Piko x-lite patch bundle for Morphe (${TAG}).",
-            "signature_download_url": "https://github.com/${REPO}/releases/download/${TAG}/patches.mpp.asc"
-          }
-          EOF
+          set -euo pipefail
+          TAG="${{ steps.release_version.outputs.new_version }}"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add patches-bundle.json CHANGELOG.md
-          git commit -m "chore: update patches-bundle.json and CHANGELOG.md for ${TAG}" || echo "no changes"
+          if git diff --cached --quiet; then
+            echo "no release metadata changes"
+            exit 0
+          fi
+          git commit -m "chore: update release metadata for ${TAG} [skip ci]"
           git push

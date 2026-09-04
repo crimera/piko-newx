@@ -67,9 +67,30 @@ def pre_build_cleanup(piko_directory: Path) -> None:
                     shutil.rmtree(matched)
 
 
-def build_piko_patches(output: str = "bins/patches.mpp") -> PikoBuild:
+def set_project_version(piko_directory: Path, version: str) -> None:
+    """Set the version only in the temporary Piko checkout used for a build."""
+    properties_path = piko_directory / "gradle.properties"
+    lines = properties_path.read_text(encoding="utf-8").splitlines(keepends=True)
+    version_indexes = [
+        index
+        for index, line in enumerate(lines)
+        if re.match(r"^\s*version\s*=", line)
+    ]
+    if len(version_indexes) != 1:
+        raise ValueError("Piko gradle.properties must contain exactly one version")
+
+    lines[version_indexes[0]] = f"version = {version}\n"
+    properties_path.write_text("".join(lines), encoding="utf-8")
+
+
+def build_piko_patches(
+    output: str = "bins/patches.mpp", patch_version: str | None = None
+) -> PikoBuild:
     output_path = Path(output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if patch_version is not None and patch_version.startswith("v"):
+        raise ValueError("patch_version must not include the leading v")
 
     with tempfile.TemporaryDirectory(prefix="piko-") as temporary_directory:
         piko_directory = Path(temporary_directory) / "piko"
@@ -94,6 +115,9 @@ def build_piko_patches(output: str = "bins/patches.mpp") -> PikoBuild:
 
         pre_build_cleanup(piko_directory)
 
+        if patch_version is not None:
+            set_project_version(piko_directory, patch_version)
+
         subprocess.run(
             ["./gradlew", "clean", "buildAndroid"],
             cwd=piko_directory,
@@ -101,13 +125,20 @@ def build_piko_patches(output: str = "bins/patches.mpp") -> PikoBuild:
             check=True,
         )
 
-        artifacts = sorted(
-            (piko_directory / "patches" / "build" / "libs").glob("patches-*.mpp")
-        )
-        if not artifacts:
-            raise FileNotFoundError("Piko did not produce a patches .mpp artifact")
+        artifacts_directory = piko_directory / "patches" / "build" / "libs"
+        if patch_version is not None:
+            artifact = artifacts_directory / f"patches-{patch_version}.mpp"
+            if not artifact.is_file():
+                raise FileNotFoundError(
+                    f"Piko did not produce the expected artifact {artifact.name}"
+                )
+        else:
+            artifacts = sorted(artifacts_directory.glob("patches-*.mpp"))
+            if not artifacts:
+                raise FileNotFoundError("Piko did not produce a patches .mpp artifact")
+            artifact = artifacts[-1]
 
-        shutil.copy2(artifacts[-1], output_path)
+        shutil.copy2(artifact, output_path)
 
         commit = subprocess.run(
             ["git", "rev-parse", "HEAD"],
