@@ -1,3 +1,8 @@
+# [12.22.0-prod.01-e7cb40f](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-e7cb40f) (2026-09-04)
+
+### Commits
+* [`e7cb40f`](https://github.com/crimera/piko/commit/e7cb40fe66408f6da6177f89aed720de80b00f7f) feat(newx): add download and merge action to media picker
+
 # [12.22.0-prod.01-fceaaf2](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-fceaaf2) (2026-09-04)
 
 ### Commits
