@@ -1,3 +1,8 @@
+# [12.22.0-prod.01-01aec60](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-01aec60) (2026-09-04)
+
+### Commits
+* [`01aec60`](https://github.com/crimera/piko/commit/01aec60e581207700d23b32ab378544c5cbb1c90) feat(newx): add setting toggle to show or hide merge button
+
 # [12.22.0-prod.01-e7cb40f](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-e7cb40f) (2026-09-04)
 
 ### Commits
