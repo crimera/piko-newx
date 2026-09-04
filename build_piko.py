@@ -49,14 +49,19 @@ def pre_build_cleanup(piko_directory: Path) -> None:
         if path.exists():
             shutil.rmtree(path)
 
-    # Clean up legacy resources
+    # Keep twitter/bringbacktwitter assets for Bring back twitter patch
     twitter_res = piko_directory / "patches/src/main/resources/twitter"
     if twitter_res.exists():
-        shutil.rmtree(twitter_res)
+        for item in twitter_res.iterdir():
+            if item.name != "bringbacktwitter":
+                if item.is_dir():
+                    shutil.rmtree(item)
+                else:
+                    item.unlink()
 
     addresources_dir = piko_directory / "patches/src/main/resources/addresources"
     if addresources_dir.exists():
-        for res_name in ("instagram", "twitter", "twitter-bring-back"):
+        for res_name in ("instagram", "twitter"):
             for matched in addresources_dir.glob(f"*/{res_name}"):
                 if matched.is_dir():
                     shutil.rmtree(matched)
