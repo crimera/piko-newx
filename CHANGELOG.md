@@ -1,3 +1,11 @@
+# [12.22.0-prod.01-3c75b44](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-3c75b44) (2026-09-04)
+
+### Commits
+* [`3c75b44`](https://github.com/crimera/piko/commit/3c75b44c2798b1375e7c1e396a801f080d862ef6) feat(newx): restore Twitter branding patch
+
+### New Patches
+* **Twitter:** NewX: Restore Twitter branding
+
 # [12.22.0-prod.01-3a3fa60](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-3a3fa60) (2026-09-03)
 
 ### Commits
