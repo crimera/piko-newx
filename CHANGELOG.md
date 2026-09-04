@@ -1,3 +1,10 @@
+# [12.22.0-prod.01-fceaaf2](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-fceaaf2) (2026-09-04)
+
+### Commits
+* [`cfcb6fe`](https://github.com/crimera/piko/commit/cfcb6fee564a6b4a74290419a6f7669b6d851f59) fix(newx): support moved share intent helper
+* [`f790f60`](https://github.com/crimera/piko/commit/f790f60c9436a264bd39a3f9f201871ba1ae782e) fix(newx): resolve For You topic constructor parameter
+* [`fceaaf2`](https://github.com/crimera/piko/commit/fceaaf29c39c835d02f57c467d65842502465652) chore(newx): add Twitter 12.23.0 compatibility
+
 # [12.22.0-prod.01-3c75b44](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-3c75b44) (2026-09-04)
 
 ### Commits
