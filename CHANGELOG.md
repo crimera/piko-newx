@@ -1,3 +1,20 @@
+# [v3.10.0](https://github.com/crimera/piko-newx/releases/tag/v3.10.0) (2026-09-05)
+
+## Features
+- add semantic release versions ([1daf1a3](https://github.com/crimera/piko-newx/commit/1daf1a31861e19cbf8b1b52fac3caa1f18d82d5d))
+
+### Commits
+* [`8588480`](https://github.com/crimera/piko/commit/85884801f22198259fc6ab3f08686fa66686d23d) feat(newx): add opt-in server diagnostics
+* [`ae5130f`](https://github.com/crimera/piko/commit/ae5130f1014315d73d30352e77220401742ae906) feat: Add NewX color customization patch
+* [`d545cd9`](https://github.com/crimera/piko/commit/d545cd9a0243afd390a423c0b89cb991c5762a6d) feat: add verified account filtering and theme custom screens
+* [`1772d37`](https://github.com/crimera/piko/commit/1772d37b21aa0a731ad87e499d311b525467f09d) fix: refine NewX filtering settings
+* [`b389397`](https://github.com/crimera/piko/commit/b389397710ff80f2e57a421aee1db9860ddbfcc3) fix: NewX accent color propagation
+
+### New Patches
+* **Twitter:** NewX: Server error logging
+* **Twitter:** NewX: Unlock color customization
+* **Twitter:** NewX: Hide posts by verified account type
+
 # [12.22.0-prod.01-01aec60](https://github.com/crimera/piko-newx/releases/tag/12.22.0-prod.01-01aec60) (2026-09-04)
 
 ### Commits
