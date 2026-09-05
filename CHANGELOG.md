@@ -1,3 +1,9 @@
+# [v3.10.1](https://github.com/crimera/piko-newx/releases/tag/v3.10.1) (2026-09-05)
+
+### Commits
+* [`4707bcd`](https://github.com/crimera/piko/commit/4707bcd04f5f8e65f73e65cea613ad013f88de87) feat(newx): tint tab labels, icons and indicators with dynamic colors
+* [`27c7d51`](https://github.com/crimera/piko/commit/27c7d516c76b57152061f28850839791806e3160) chore(newx): add Twitter 12.23.1 compatibility
+
 # [v3.10.0](https://github.com/crimera/piko-newx/releases/tag/v3.10.0) (2026-09-05)
 
 ## Features
