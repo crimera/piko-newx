@@ -84,12 +84,14 @@ def set_project_version(piko_directory: Path, version: str) -> None:
 
 
 def build_piko_patches(
-    output: str = "bins/patches.mpp", patch_version: str | None = None
+    patch_version: str, output: str | None = None
 ) -> PikoBuild:
+    if output is None:
+        output = f"bins/patches-{patch_version}.mpp"
     output_path = Path(output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    if patch_version is not None and patch_version.startswith("v"):
+    if patch_version.startswith("v"):
         raise ValueError("patch_version must not include the leading v")
 
     with tempfile.TemporaryDirectory(prefix="piko-") as temporary_directory:
@@ -114,9 +116,7 @@ def build_piko_patches(
         )
 
         pre_build_cleanup(piko_directory)
-
-        if patch_version is not None:
-            set_project_version(piko_directory, patch_version)
+        set_project_version(piko_directory, patch_version)
 
         subprocess.run(
             ["./gradlew", "clean", "buildAndroid"],
@@ -126,17 +126,11 @@ def build_piko_patches(
         )
 
         artifacts_directory = piko_directory / "patches" / "build" / "libs"
-        if patch_version is not None:
-            artifact = artifacts_directory / f"patches-{patch_version}.mpp"
-            if not artifact.is_file():
-                raise FileNotFoundError(
-                    f"Piko did not produce the expected artifact {artifact.name}"
-                )
-        else:
-            artifacts = sorted(artifacts_directory.glob("patches-*.mpp"))
-            if not artifacts:
-                raise FileNotFoundError("Piko did not produce a patches .mpp artifact")
-            artifact = artifacts[-1]
+        artifact = artifacts_directory / f"patches-{patch_version}.mpp"
+        if not artifact.is_file():
+            raise FileNotFoundError(
+                f"Piko did not produce the expected artifact {artifact.name}"
+            )
 
         shutil.copy2(artifact, output_path)
 
