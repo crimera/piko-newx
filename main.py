@@ -16,7 +16,7 @@ CHANGELOG_FILE = "CHANGELOG.md"
 CHANGELOG_APP_NAME = "Twitter"
 PATCHES_BUNDLE_FILE = "patches-bundle.json"
 PATCHES_LIST_ASSET = "patches-list.json"
-PATCHES_MPP = "bins/patches.mpp"
+PATCHES_MPP_DIR = "bins"
 RELEASE_TAG_PATTERN = re.compile(r"^v\d+\.\d+\.\d+$")
 LEGACY_RELEASE_PATTERN = re.compile(r"^(?P<app>.+)-(?P<piko>[0-9a-f]{7,40})$")
 APP_VERSION_PATTERN = re.compile(
@@ -135,12 +135,14 @@ def write_patches_bundle(
     repo: str = REPO,
 ) -> None:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
+    patch_version = validate_release_tag(release_tag)
+    mpp_filename = f"patches-{patch_version}.mpp"
     metadata = {
         "version": release_tag,
-        "download_url": f"https://github.com/{repo}/releases/download/{release_tag}/patches.mpp",
+        "download_url": f"https://github.com/{repo}/releases/download/{release_tag}/{mpp_filename}",
         "created_at": now,
         "description": f"Piko x-lite patch bundle for Morphe ({release_tag}).",
-        "signature_download_url": f"https://github.com/{repo}/releases/download/{release_tag}/patches.mpp.asc",
+        "signature_download_url": f"https://github.com/{repo}/releases/download/{release_tag}/{mpp_filename}.asc",
         "app_version": app_version,
         "piko_commit": piko_build.commit,
     }
@@ -215,11 +217,13 @@ def process(
     generated_changelog: str = "",
 ) -> None:
     piko_commit = piko_build.commit[:7]
+    patch_version = validate_release_tag(release_tag)
+    patches_mpp = f"{PATCHES_MPP_DIR}/patches-{patch_version}.mpp"
 
     download_morphe_cli(include_prereleases=False)
 
     print(f"Using Piko x-lite@{piko_commit}")
-    patches = get_xlite_patches("bins/morphe-cli.jar", PATCHES_MPP)
+    patches = get_xlite_patches("bins/morphe-cli.jar", patches_mpp)
     write_patches_list(patches)
 
     previous_patches = (
@@ -246,8 +250,8 @@ def process(
     ]
     message = "\n\n".join(release_sections)
 
-    signature = sign_artifact(PATCHES_MPP)
-    release_assets = [PATCHES_MPP, PATCHES_LIST_ASSET, *( [signature] if signature else [] )]
+    signature = sign_artifact(patches_mpp)
+    release_assets = [patches_mpp, PATCHES_LIST_ASSET, *( [signature] if signature else [] )]
 
     publish_release(
         release_tag,
