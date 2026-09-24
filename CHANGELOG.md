@@ -1,3 +1,8 @@
+## [3.37.1](https://github.com/crimera/piko-newx/compare/v3.37.0...v3.37.1) (2026-09-24)
+
+### 🐛 Bug Fixes
+* **Twitter:** add media picker resolution chooser toggle ([40560ca](https://github.com/crimera/piko/commit/40560ca79b091a1c4a23b41c1b61983a26671a90))
+
 ## [3.37.0](https://github.com/crimera/piko-newx/compare/v3.36.0...v3.37.0) (2026-09-24)
 
 ### 🐛 Bug Fixes
