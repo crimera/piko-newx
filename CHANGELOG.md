@@ -1,3 +1,11 @@
+## [3.37.0](https://github.com/crimera/piko-newx/compare/v3.36.0...v3.37.0) (2026-09-24)
+
+### 🐛 Bug Fixes
+* **Twitter:** keep extension surfaces black without the dynamic color patch ([4c7b8ff](https://github.com/crimera/piko/commit/4c7b8ffd2a683fdbdae901d666de254f8687084e))
+
+### ✨ New Features
+* **Twitter:** per-tab navigation bar badge toggles ([0e30ed4](https://github.com/crimera/piko/commit/0e30ed414f459dbbd3fb73227936d5db89662908))
+
 ## [3.36.0](https://github.com/crimera/piko-newx/compare/v3.35.0...v3.36.0) (2026-09-24)
 
 ### ✨ New Features
