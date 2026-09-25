@@ -1,3 +1,31 @@
+## [3.38.0](https://github.com/crimera/piko-newx/compare/v3.37.1...v3.38.0) (2026-09-25)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** skip inline-download IconOnly override on legacy boolean kind models ([e44507a](https://github.com/crimera/piko/commit/e44507aa6c203c9365342d81ee893601a2fb464e))
+* **Twitter - newx:** inject default media-tab bridge at the 12.29 seed label ([24297e4](https://github.com/crimera/piko/commit/24297e403c902f2fdca1702d206027c0b36dcd6a))
+* **Twitter:** 12.29 reply sorting fix ([5c4fe77](https://github.com/crimera/piko/commit/5c4fe773c35c42e1f8fb5f6fe754fcbb6dc70f49))
+* **Twitter - newx:** give the injected inline download action the icon-only kind ([5e65767](https://github.com/crimera/piko/commit/5e6576793c536d3b6e4bbe5a99e31f3be3c7b12b))
+* **Twitter - newx:** inset 12.29 immersive action row ([5bfd025](https://github.com/crimera/piko/commit/5bfd025085a44883a6c22ca16d6be9ea05c43475))
+* **Twitter - newx:** keep the photo screen's gated gesture inset when hiding the reply bar ([a4c0293](https://github.com/crimera/piko/commit/a4c029398eafbe9fd93773a51eadd81ff2f2e36d))
+* **Twitter:** select the nav spacer in the 12.29 immersive photo viewer ([b46d10d](https://github.com/crimera/piko/commit/b46d10dc10b8165f5c6d626f9d5f8ca49895b880))
+* **Twitter:** keep navigation-bar field reads four-bit on high-register methods ([bd65565](https://github.com/crimera/piko/commit/bd65565f2a1e58d45e1f9da50b6950f8401827f2))
+* **Twitter:** identify 12.29 media-tab sub-tab seed semantically ([29903b8](https://github.com/crimera/piko/commit/29903b8f1e6d42720807616ee2340a0bdf4dbfb9))
+* **Twitter:** support 12.29 submit handler without POST_SUCCESS ([2c96f24](https://github.com/crimera/piko/commit/2c96f246d251a85478d28b43738689fe21bfa3f2))
+* **Twitter:** resolve 12.29 profile-link canonical URL builder ([83e65a6](https://github.com/crimera/piko/commit/83e65a6ad8eeb784f227383bff7aa8161ccc706b))
+* **Twitter:** resolve 12.29 hide post dividers null-key lowering ([c39f422](https://github.com/crimera/piko/commit/c39f4224364e896d31d3800aa0c18f9155614bd6))
+* **Twitter:** resolve new-post renderer ABI variant for 12.29 ([3f95e24](https://github.com/crimera/piko/commit/3f95e2415086094160ec05b97d85955f736beafe))
+* **Twitter:** anchor For You topic request on semantic filters for 12.29 ([d4880c3](https://github.com/crimera/piko/commit/d4880c32aa68aa89858f016d6cc38a70753f701b))
+* **Twitter:** resolve VerticalPager owner-agnostically for 12.29 ([7c42e86](https://github.com/crimera/piko/commit/7c42e867a2b7da17f5a4ca2f955e7ee7fdcedc40))
+* **Twitter:** port drawer and navigation bar resolvers to 12.29 ([7b489ae](https://github.com/crimera/piko/commit/7b489ae068ebfa6e3196388844e58ab157927df5))
+* **Twitter - Custom Sharing Domain:** add support for 12.19 alpha 4 ([8fde3b9](https://github.com/crimera/piko/commit/8fde3b95939f1e15cb517ba6976317e9143c7a96))
+
+### ✨ New Features
+* **Twitter:** initial support for 12.29 alpha 4 ([f3b986e](https://github.com/crimera/piko/commit/f3b986eac4459e6f42b5bcb1e0b68e8d4a844348))
+* **Twitter - newx:** add classic inline action bar spacing ([c9972f9](https://github.com/crimera/piko/commit/c9972f913caedadfa3100ef647dd8c6dce64d40a))
+
+### New Patches
+* **Twitter:** NewX: Classic inline action spacing
+
 ## [3.37.1](https://github.com/crimera/piko-newx/compare/v3.37.0...v3.37.1) (2026-09-24)
 
 ### 🐛 Bug Fixes
