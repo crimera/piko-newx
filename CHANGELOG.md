@@ -1,3 +1,8 @@
+## [3.40.0](https://github.com/crimera/piko-newx/compare/v3.39.0...v3.40.0) (2026-09-26)
+
+### ✨ New Features
+* **Twitter:** add experimental support for 12.29.1-prod.01 ([117b25f](https://github.com/crimera/piko/commit/117b25f803045ecbc100e010e9846979024b8fcf))
+
 ## [3.39.0](https://github.com/crimera/piko-newx/compare/v3.38.0...v3.39.0) (2026-09-26)
 
 ### 🐛 Bug Fixes
