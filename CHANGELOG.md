@@ -1,3 +1,8 @@
+## [3.41.0](https://github.com/crimera/piko-newx/compare/v3.40.1...v3.41.0) (2026-09-26)
+
+### ✨ New Features
+* **Twitter - newx:** mark and sort newly observed feature switches ([8ac80ff](https://github.com/crimera/piko/commit/8ac80ff7a2e56e84812ba3ecf691f8b8da210934))
+
 ## [3.40.1](https://github.com/crimera/piko-newx/compare/v3.40.0...v3.40.1) (2026-09-26)
 
 ### 🐛 Bug Fixes
