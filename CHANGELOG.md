@@ -1,3 +1,21 @@
+## [3.39.0](https://github.com/crimera/piko-newx/compare/v3.38.0...v3.39.0) (2026-09-26)
+
+### 🐛 Bug Fixes
+* **Twitter:** enable old inline actions spacing patch by default ([433b259](https://github.com/crimera/piko/commit/433b259e8dcb4542c5c1c7f2b176eea52c718d79))
+* **Twitter:** narrow destination-loss detection, fix status toast and merge loss (#38) ([980fc80](https://github.com/crimera/piko/commit/980fc806b3424158471e4be2f5a6052b2df39ac1))
+* **Twitter:** fix silent NewX download failures (#38) ([a1ad351](https://github.com/crimera/piko/commit/a1ad3511f90374b92b5afe3020c38bfd507d907b))
+
+### ✨ New Features
+* **Twitter - newx:** replace the AMOLED toggle with an amoled/dim dark style chooser ([36e227f](https://github.com/crimera/piko/commit/36e227f71ff11605586f32ca4f36278a3e193e30))
+
+### 🔧 Improvements
+* **Twitter - newx:** dedupe repeated dex traversals in slow patches ([4b6bbaa](https://github.com/crimera/piko/commit/4b6bbaa350188a95c7b1736513aba066c911b136))
+* **Twitter - newx:** rename the Dynamic color patch to Theme ([e6121e9](https://github.com/crimera/piko/commit/e6121e9c19da2e713eb85097a71bbcc2e49ba58a))
+* **Twitter - newx:** port the patch suite to the typed bytecode API ([1505dc6](https://github.com/crimera/piko/commit/1505dc67e32c23b4a3e7b2fd984eb1f5f6853125))
+
+### New Patches
+* **Twitter:** NewX: Theme
+
 ## [3.38.0](https://github.com/crimera/piko-newx/compare/v3.37.1...v3.38.0) (2026-09-25)
 
 ### 🐛 Bug Fixes
