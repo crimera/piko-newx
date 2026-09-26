@@ -1,3 +1,8 @@
+## [3.40.1](https://github.com/crimera/piko-newx/compare/v3.40.0...v3.40.1) (2026-09-26)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** share-image captures detail main post instead of stale reply ([badfa75](https://github.com/crimera/piko/commit/badfa75c21b3184ce24a47e69d5acfb036267078))
+
 ## [3.40.0](https://github.com/crimera/piko-newx/compare/v3.39.0...v3.40.0) (2026-09-26)
 
 ### ✨ New Features
