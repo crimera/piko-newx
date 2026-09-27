@@ -1,3 +1,14 @@
+## [3.42.0](https://github.com/crimera/piko-newx/compare/v3.41.0...v3.42.0) (2026-09-27)
+
+### 🐛 Bug Fixes
+* **Twitter:** flap-riding retries, cancel/share actions, no-connection state ([5cca3fe](https://github.com/crimera/piko/commit/5cca3fef3040e82850805d6343e7f52216279b5f))
+* **Twitter:** retry button on failure, stall-tolerant large transfers ([4eeb18b](https://github.com/crimera/piko/commit/4eeb18b6f0311f77533a0d2e8da7fe65bce2a03f))
+
+### ✨ New Features
+* **Twitter - newx:** disable themed like button by default ([7750b85](https://github.com/crimera/piko/commit/7750b85af26e530890a7f8af5fbc097e464e7573))
+* **Twitter - newx:** add Default theme option with original NewX colors ([0d56c65](https://github.com/crimera/piko/commit/0d56c65a87330e3246c2def3edfd972ec3485349))
+* **Twitter - newx:** replace dynamic toggle with Material You/high-contrast/Dim theme chooser ([3967dc1](https://github.com/crimera/piko/commit/3967dc14396943324a4757b96940f3793e557bc5))
+
 ## [3.41.0](https://github.com/crimera/piko-newx/compare/v3.40.1...v3.41.0) (2026-09-26)
 
 ### ✨ New Features
