@@ -1,3 +1,9 @@
+## [3.42.1](https://github.com/crimera/piko-newx/compare/v3.42.0...v3.42.1) (2026-09-28)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** cancel the progress notice when download failures can't notify ([5ea8704](https://github.com/crimera/piko/commit/5ea8704c69614c81a03a8bff68723fba4663bcde))
+* **Twitter - newx:** post terminal download notices on a fresh notification id ([64782ba](https://github.com/crimera/piko/commit/64782bae74b34d54ecf24017abf75b566d4a75c3))
+
 ## [3.42.0](https://github.com/crimera/piko-newx/compare/v3.41.0...v3.42.0) (2026-09-27)
 
 ### 🐛 Bug Fixes
