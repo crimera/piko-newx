@@ -1,3 +1,18 @@
+## [3.43.0](https://github.com/crimera/piko-newx/compare/v3.42.2...v3.43.0) (2026-09-29)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** fingerprint reply facepile lists by parameter provenance ([d3eef3e](https://github.com/crimera/piko/commit/d3eef3edfd9df557b208dbe664fc80b952ca72ce))
+* **Twitter - newx:** resolve the widened Glide LRU map field on 12.30 ([03fec1f](https://github.com/crimera/piko/commit/03fec1fc3fc5cdc47315ee9fef7e41a4683531ad))
+
+### ✨ New Features
+* **Twitter - newx:** redirect native download buttons to the chosen folder ([d4f1cc7](https://github.com/crimera/piko/commit/d4f1cc75301e531412e5a8789cc13cb516ffd0a1))
+
+### 🔧 Improvements
+* **Twitter - newx:** clear resolver anchor backlog and gate the drift rules ([b30b72c](https://github.com/crimera/piko/commit/b30b72cce71ba8f502a9369a01cf2010e2e5cf8b))
+
+### New Patches
+* **Twitter:** NewX: Redirect downloads to chosen folder
+
 ## [3.42.2](https://github.com/crimera/piko-newx/compare/v3.42.1...v3.42.2) (2026-09-28)
 
 ### 🐛 Bug Fixes
