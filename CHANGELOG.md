@@ -1,3 +1,13 @@
+## [3.44.0](https://github.com/crimera/piko-newx/compare/v3.43.0...v3.44.0) (2026-09-29)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** hook the home-nav header state for hide premium upsell ([5505646](https://github.com/crimera/piko/commit/55056469426971b9d8307393733c93bdb680c664))
+* **Twitter - newx:** cast the Coil strong-cache wrapper before its map read ([a6159e3](https://github.com/crimera/piko/commit/a6159e30d1ea9768da35d4b2174832094d85b266))
+* **Twitter - newx:** read Coil's strong-cache map on the 12.30 merge ([9a9f8c0](https://github.com/crimera/piko/commit/9a9f8c0930b65a2486b27497c6cf9e7bef7fa37a))
+
+### ✨ New Features
+* **Twitter - newx:** report thumbnail cache lookup stage and sample keys ([b081e5b](https://github.com/crimera/piko/commit/b081e5b7d27aa1a88a4e2833821be25be208b043))
+
 ## [3.43.0](https://github.com/crimera/piko-newx/compare/v3.42.2...v3.43.0) (2026-09-29)
 
 ### 🐛 Bug Fixes
