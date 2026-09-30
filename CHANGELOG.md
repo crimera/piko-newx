@@ -1,3 +1,16 @@
+## [3.45.0](https://github.com/crimera/piko-newx/compare/v3.44.0...v3.45.0) (2026-09-30)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** accept one or two video-tab download handlers ([b827ff3](https://github.com/crimera/piko/commit/b827ff3edc9f4b7b665106d0be6eac6c59f8bacc))
+* **Twitter - newx:** capture fingerprint shapes instead of hidden patcher fields ([95a259e](https://github.com/crimera/piko/commit/95a259e85ad920771de389979bb97623f4171300))
+
+### ✨ New Features
+* **Twitter:** add experimental support for 12.31.0-alpha.02 ([ef85b31](https://github.com/crimera/piko/commit/ef85b31db37bee06e8b912a9a5429111208a4691))
+* **Twitter - newx:** customize media long-press menu items ([5e32171](https://github.com/crimera/piko/commit/5e3217147c7ed96bdbaa0ca62dcd46d8fc81b56a))
+
+### New Patches
+* **Twitter:** NewX: Customize media menu items
+
 ## [3.44.0](https://github.com/crimera/piko-newx/compare/v3.43.0...v3.44.0) (2026-09-29)
 
 ### 🐛 Bug Fixes
