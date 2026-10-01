@@ -1,3 +1,11 @@
+## [3.47.0](https://github.com/crimera/piko-newx/compare/v3.46.0...v3.47.0) (2026-10-01)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** resolve immersive reply bar renderer on 12.31.0-alpha.04 ([af06413](https://github.com/crimera/piko/commit/af064137c93ce4655e77da436c8f107cc1e3d903))
+
+### ✨ New Features
+* **Twitter - newx:** declare 12.31.0-alpha.04 as an experimental target ([9eed2e7](https://github.com/crimera/piko/commit/9eed2e7b5c1f6a5cd8aa39117bd9cf6d76a26f6c))
+
 ## [3.46.0](https://github.com/crimera/piko-newx/compare/v3.45.0...v3.46.0) (2026-10-01)
 
 ### 🐛 Bug Fixes
