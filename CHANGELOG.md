@@ -1,3 +1,14 @@
+## [3.48.0](https://github.com/crimera/piko-newx/compare/v3.47.0...v3.48.0) (2026-10-02)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** theme inline action counts that the host overrides with white ([dfb54a2](https://github.com/crimera/piko/commit/dfb54a2ca9b8b8fb40cc63def93a180ccb3cb771))
+
+### ✨ New Features
+* **Twitter - newx:** give Piko settings rows their own icon ([5ef312b](https://github.com/crimera/piko/commit/5ef312b108e1bd4e0c7ef1090cd49fcdc542a555))
+
+### 🔧 Improvements
+* **Twitter - newx:** Scan classes in parallel for whole-APK discovery ([dd61dbd](https://github.com/crimera/piko/commit/dd61dbdc5ed41284a708da8799af9ed88a47e92e))
+
 ## [3.47.0](https://github.com/crimera/piko-newx/compare/v3.46.0...v3.47.0) (2026-10-01)
 
 ### 🐛 Bug Fixes
