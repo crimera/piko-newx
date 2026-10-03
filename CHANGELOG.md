@@ -1,3 +1,21 @@
+## [3.49.0](https://github.com/crimera/piko-newx/compare/v3.48.0...v3.49.0) (2026-10-03)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** label the For You topic button for what it keeps, not snoozes ([34e7f19](https://github.com/crimera/piko/commit/34e7f198320b500b1a3f8a053cc9a3b79e267c63))
+* **Twitter - newx:** don't save timeline positions before the timeline loads ([39fb543](https://github.com/crimera/piko/commit/39fb543865e8f5f12ec22ce434474ce0bdef3762))
+
+### ✨ New Features
+* **Twitter - newx:** reopen the last pinned home tab on startup ([0503633](https://github.com/crimera/piko/commit/050363383ff2a4698cc535b2106f3af60870e9f9))
+* **Twitter - newx:** restore list, topic and community timeline positions ([834e0d5](https://github.com/crimera/piko/commit/834e0d592175f3202429b0091f04559c9a536503))
+
+### 🔧 Improvements
+* **Twitter:** use the shared Utils and AddResourcesPatch from piko-patches-library ([3c8f15a](https://github.com/crimera/piko/commit/3c8f15ae4a9df800628afacd500f9358a098c27d))
+* **Twitter - newx:** move the settings registry, screens and widgets into the shared libraries ([025ded0](https://github.com/crimera/piko/commit/025ded0013a4aa625241e6305664a31e30867eda))
+* **Twitter - newx:** move server error logging into the shared extension library ([cfe591d](https://github.com/crimera/piko/commit/cfe591d28b2c7cc65ac6f38ccdae826b75497ee3))
+
+### New Patches
+* **Twitter:** NewX: Restore pinned home tab
+
 ## [3.48.0](https://github.com/crimera/piko-newx/compare/v3.47.0...v3.48.0) (2026-10-02)
 
 ### 🐛 Bug Fixes
