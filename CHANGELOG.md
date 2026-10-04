@@ -1,3 +1,22 @@
+## [3.50.0](https://github.com/crimera/piko-newx/compare/v3.49.0...v3.50.0) (2026-10-04)
+
+### ✨ New Features
+* **Twitter - newx:** customize which profile tabs show and their order ([06253d4](https://github.com/crimera/piko/commit/06253d4e9d566b70a294278a0aafdb8fa2c5e4f0))
+
+### 🔧 Improvements
+* **Twitter - newx:** keep the batch toast rule, drop scope creep from the migration ([74279e5](https://github.com/crimera/piko/commit/74279e58c4039f67992b2762ece2eaa407085b8a))
+* **Twitter - newx:** remove legacy download engine and receivers ([e7cc9c3](https://github.com/crimera/piko/commit/e7cc9c3ff049ec31a3ef30fb3c829efc69edb9c8))
+* **Twitter - newx:** adopt shared folder picker and destination writer in media merger ([90ccc24](https://github.com/crimera/piko/commit/90ccc2414eef3057cd22619c4a36d983ba51b206))
+* **Twitter - newx:** route downloads through shared engine ([fd7b603](https://github.com/crimera/piko/commit/fd7b603039a5130f39983233ad6f0784bdbde225))
+* **Twitter - newx:** install shared downloader engine at startup ([faafbec](https://github.com/crimera/piko/commit/faafbec3da6c5d3339bb0f7ac16b89a3851f08e2))
+* **Twitter:** move the legacy shared downloader to its own package ([34a5f74](https://github.com/crimera/piko/commit/34a5f74515a00f5ab4c5fd66b69d935a3b879c08))
+* **Twitter - newx:** pass the destination tree to reserve ([3992775](https://github.com/crimera/piko/commit/3992775faac7395bdc50f7230e5708d36c98d448))
+* **Twitter - newx:** move download folder management out of DownloadDestination ([bdf3f24](https://github.com/crimera/piko/commit/bdf3f245842bb4d7de9b220ae694bf16cec62ec7))
+* **Twitter:** use the shared resolver helpers and linters from piko-patches-library ([d4aba56](https://github.com/crimera/piko/commit/d4aba563143c7559469314a899b47ec357665f86))
+
+### New Patches
+* **Twitter:** NewX: Customize profile tabs
+
 ## [3.49.0](https://github.com/crimera/piko-newx/compare/v3.48.0...v3.49.0) (2026-10-03)
 
 ### 🐛 Bug Fixes
