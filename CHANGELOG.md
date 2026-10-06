@@ -1,3 +1,9 @@
+## [3.53.1](https://github.com/crimera/piko-newx/compare/v3.53.0...v3.53.1) (2026-10-06)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** inject Piko settings row into the 12.33 alpha.02 redesigned settings list ([f834ae9](https://github.com/crimera/piko/commit/f834ae94175102ef0cb2c0d61cfe7e49769db303))
+* **Twitter - newx:** resolve 12.33.0-alpha.02 drift and add it as an experimental target ([a5b44d7](https://github.com/crimera/piko/commit/a5b44d77ea15dfd9f8e9ab578e1656195244e8de))
+
 ## [3.53.0](https://github.com/crimera/piko-newx/compare/v3.52.0...v3.53.0) (2026-10-06)
 
 ### 🐛 Bug Fixes
