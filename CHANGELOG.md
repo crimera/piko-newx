@@ -1,3 +1,11 @@
+## [3.52.0](https://github.com/crimera/piko-newx/compare/v3.51.0...v3.52.0) (2026-10-06)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** resolve 12.32 alpha.04 drift and add it as an experimental target ([63dbf61](https://github.com/crimera/piko/commit/63dbf6144bc00caac1637a422035d64602a39c4b))
+
+### ✨ New Features
+* **Twitter - newx:** extend disable-refresh guard to pinned lists and restore their saved position ([b46c260](https://github.com/crimera/piko/commit/b46c260d76d911397be8a11c59a5f0eae5b71090))
+
 ## [3.51.0](https://github.com/crimera/piko-newx/compare/v3.50.0...v3.51.0) (2026-10-04)
 
 ### ✨ New Features
