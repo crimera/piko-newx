@@ -1,3 +1,7 @@
+## [3.53.3](https://github.com/crimera/piko-newx/compare/v3.53.2...v3.53.3) (2026-10-08)
+
+* No new patches or commits.
+
 ## [3.53.2](https://github.com/crimera/piko-newx/compare/v3.53.1...v3.53.2) (2026-10-08)
 
 ### 🐛 Bug Fixes
