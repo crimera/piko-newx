@@ -1,9 +1,9 @@
 {
-  "version": "v3.53.1",
-  "download_url": "https://github.com/crimera/piko-newx/releases/download/v3.53.1/patches-3.53.1.mpp",
-  "created_at": "2026-10-06T22:37:18",
-  "description": "Piko x-lite patch bundle for Morphe (v3.53.1).",
-  "signature_download_url": "https://github.com/crimera/piko-newx/releases/download/v3.53.1/patches-3.53.1.mpp.asc",
+  "version": "v3.53.2",
+  "download_url": "https://github.com/crimera/piko-newx/releases/download/v3.53.2/patches-3.53.2.mpp",
+  "created_at": "2026-10-08T21:41:21",
+  "description": "Piko x-lite patch bundle for Morphe (v3.53.2).",
+  "signature_download_url": "https://github.com/crimera/piko-newx/releases/download/v3.53.2/patches-3.53.2.mpp.asc",
   "app_version": "12.29.1-prod.01",
-  "piko_commit": "f834ae94175102ef0cb2c0d61cfe7e49769db303"
+  "piko_commit": "c8e6c99ad90b61ea202436da215b099165ddfece"
 }

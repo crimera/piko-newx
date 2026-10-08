@@ -1,3 +1,10 @@
+## [3.53.2](https://github.com/crimera/piko-newx/compare/v3.53.1...v3.53.2) (2026-10-08)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** keep the filename template buttons visible ([c8e6c99](https://github.com/crimera/piko/commit/c8e6c99ad90b61ea202436da215b099165ddfece))
+* **Twitter - newx:** theme the media viewer overlay text, icons, and follow pill ([3c658e8](https://github.com/crimera/piko/commit/3c658e81c603c589d7abdaa13a069b2db896b6c8))
+* **Twitter - newx:** resolve download display name from the source account for quoted media ([275e93d](https://github.com/crimera/piko/commit/275e93d3756c81567d8ebdcd5d0ffe69341b9621))
+
 ## [3.53.1](https://github.com/crimera/piko-newx/compare/v3.53.0...v3.53.1) (2026-10-06)
 
 ### 🐛 Bug Fixes
