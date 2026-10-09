@@ -1,3 +1,12 @@
+## [3.54.0](https://github.com/crimera/piko-newx/compare/v3.53.3...v3.54.0) (2026-10-09)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** theme the light chrome under Material You and add 12.33.0-prod.01 ([515ebcb](https://github.com/crimera/piko/commit/515ebcba390ae2765f0127e3c7661e6f6167c0d6))
+* **Twitter - newx:** accept the 12.33 prod tab-map wrapper with an extra int ([f614802](https://github.com/crimera/piko/commit/f614802fb079ebebe291d1542de17e984da5a677))
+
+### ✨ New Features
+* **Twitter - newx:** restore the Twitter bird in the top bar ([f116ed9](https://github.com/crimera/piko/commit/f116ed9349db4f486bfb216071d18207901d5107))
+
 ## [3.53.3](https://github.com/crimera/piko-newx/compare/v3.53.2...v3.53.3) (2026-10-08)
 
 * No new patches or commits.
