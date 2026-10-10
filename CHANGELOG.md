@@ -1,3 +1,8 @@
+## [3.54.1](https://github.com/crimera/piko-newx/compare/v3.54.0...v3.54.1) (2026-10-10)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** match the share-image window rect by shape, not class name ([f96307a](https://github.com/crimera/piko/commit/f96307a4c30ef5e2125b3b5364ec02c8f933a92f))
+
 ## [3.54.0](https://github.com/crimera/piko-newx/compare/v3.53.3...v3.54.0) (2026-10-09)
 
 ### 🐛 Bug Fixes
