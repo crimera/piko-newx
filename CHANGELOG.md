@@ -1,3 +1,8 @@
+## [3.54.2](https://github.com/crimera/piko-newx/compare/v3.54.1...v3.54.2) (2026-10-10)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** stop the profile Photos grid oscillating during drags ([9abde97](https://github.com/crimera/piko/commit/9abde9777d92af50fe1a53634262498fb630d7d3))
+
 ## [3.54.1](https://github.com/crimera/piko-newx/compare/v3.54.0...v3.54.1) (2026-10-10)
 
 ### 🐛 Bug Fixes
