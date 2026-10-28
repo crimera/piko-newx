@@ -1,3 +1,11 @@
+## [3.68.0](https://github.com/crimera/piko-newx/compare/v3.67.0...v3.68.0) (2026-10-28)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** support 12.39 alpha with resilient fail-closed hooks ([5de3530](https://github.com/crimera/piko/commit/5de35309a55bc5b37e253b2f18c53456cd315899))
+
+### ✨ New Features
+* **Twitter - newx:** support 12.39 alpha and disable persistent bottom navigation ([1093cd8](https://github.com/crimera/piko/commit/1093cd8d6b78cb35d15a147d684e7ac47abb7e43))
+
 ## [3.67.0](https://github.com/crimera/piko-newx/compare/v3.66.0...v3.67.0) (2026-10-28)
 
 ### 🐛 Bug Fixes
