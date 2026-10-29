@@ -1,3 +1,8 @@
+## [3.71.1](https://github.com/crimera/piko-newx/compare/v3.71.0...v3.71.1) (2026-10-29)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** use permanent profile share URLs ([0bfa362](https://github.com/crimera/piko/commit/0bfa362dd7dc80e4c8f5346d9f218c771f98f887))
+
 ## [3.71.0](https://github.com/crimera/piko-newx/compare/v3.70.0...v3.71.0) (2026-10-29)
 
 ### ✨ New Features
