@@ -1,3 +1,14 @@
+## [3.69.0](https://github.com/crimera/piko-newx/compare/v3.68.0...v3.69.0) (2026-10-29)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** find the visible activity for inline downloads after deeplinks ([54e59fe](https://github.com/crimera/piko/commit/54e59fec1a32613de16c1dd3ede044be343c3ea5))
+
+### ✨ New Features
+* **Twitter - newx:** add translator with post-menu tray and inline translation ([1b70913](https://github.com/crimera/piko/commit/1b70913c7e5e7dbc49c9a05f44332a81dcc9a464))
+
+### New Patches
+* **Twitter:** NewX: Translator
+
 ## [3.68.0](https://github.com/crimera/piko-newx/compare/v3.67.0...v3.68.0) (2026-10-28)
 
 ### 🐛 Bug Fixes
