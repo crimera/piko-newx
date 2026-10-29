@@ -1,3 +1,8 @@
+## [3.72.1](https://github.com/crimera/piko-newx/compare/v3.72.0...v3.72.1) (2026-10-29)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** translate full long posts and allow overflow scrolling ([d826f52](https://github.com/crimera/piko/commit/d826f52512fbd3d01289831f1a86f1170fd12ecf))
+
 ## [3.72.0](https://github.com/crimera/piko-newx/compare/v3.71.1...v3.72.0) (2026-10-29)
 
 ### 🐛 Bug Fixes
