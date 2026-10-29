@@ -1,3 +1,8 @@
+## [3.72.2](https://github.com/crimera/piko-newx/compare/v3.72.1...v3.72.2) (2026-10-29)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** mark alpha compatibility as experimental ([2add263](https://github.com/crimera/piko/commit/2add2633e6f99859483493c2c20972e5735d0155))
+
 ## [3.72.1](https://github.com/crimera/piko-newx/compare/v3.72.0...v3.72.1) (2026-10-29)
 
 ### 🐛 Bug Fixes
