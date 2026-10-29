@@ -1,3 +1,18 @@
+## [3.71.0](https://github.com/crimera/piko-newx/compare/v3.70.0...v3.71.0) (2026-10-29)
+
+### ✨ New Features
+* **Twitter - newx:** add user ID filename template token ([6988a7f](https://github.com/crimera/piko/commit/6988a7f14afdfde6fa555489a5b3354fdba1a286))
+* **Twitter - newx:** remove share tracking parameters ([8feb49f](https://github.com/crimera/piko/commit/8feb49f962d9045281cd1ad536b6a2dc58c79f2d))
+* **Twitter - newx:** add permanent share links ([383c907](https://github.com/crimera/piko/commit/383c9073807fcae2406588b151e150e11890d9d0))
+* **Twitter - newx:** add shared link rewriting ([1be2785](https://github.com/crimera/piko/commit/1be2785cc6bdf59bdf17d936ec828180fe9c38e4))
+
+### 🔧 Improvements
+* **Twitter - newx:** remove code paths for dropped targets ([d73ade2](https://github.com/crimera/piko/commit/d73ade22fcdb6f9aeaa5c0db493147eb3768e60e))
+
+### New Patches
+* **Twitter:** NewX: Permanent share links
+* **Twitter:** NewX: Remove share tracking parameters
+
 ## [3.70.0](https://github.com/crimera/piko-newx/compare/v3.69.0...v3.70.0) (2026-10-29)
 
 ### 🐛 Bug Fixes
