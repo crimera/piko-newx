@@ -1,3 +1,12 @@
+## [3.70.0](https://github.com/crimera/piko-newx/compare/v3.69.0...v3.70.0) (2026-10-29)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** keep restored timeline positions across server cache trims ([ec29bb8](https://github.com/crimera/piko/commit/ec29bb8ed768c1b374722f65b5220847bb7c3d1b))
+* **Twitter - newx:** translate only the post text X renders ([ba6080a](https://github.com/crimera/piko/commit/ba6080aa3b9c036b082f202536eb0c1ae75e08ae))
+
+### ✨ New Features
+* **Twitter - newx:** drop 12.37.2 and older targets ([c79b8d0](https://github.com/crimera/piko/commit/c79b8d0f3344e7b79f400d414b909aa593d386d1))
+
 ## [3.69.0](https://github.com/crimera/piko-newx/compare/v3.68.0...v3.69.0) (2026-10-29)
 
 ### 🐛 Bug Fixes
