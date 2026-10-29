@@ -1,3 +1,8 @@
+## [3.72.3](https://github.com/crimera/piko-newx/compare/v3.72.2...v3.72.3) (2026-10-29)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** handle launch reveal parameter order drift ([31282e4](https://github.com/crimera/piko/commit/31282e4274fee4b313c6a3e23bccc93877b3f0fe))
+
 ## [3.72.2](https://github.com/crimera/piko-newx/compare/v3.72.1...v3.72.2) (2026-10-29)
 
 ### 🐛 Bug Fixes
