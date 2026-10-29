@@ -1,3 +1,11 @@
+## [3.72.0](https://github.com/crimera/piko-newx/compare/v3.71.1...v3.72.0) (2026-10-29)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** skip X launch reveal with Twitter branding ([84a96cc](https://github.com/crimera/piko/commit/84a96cc5205776232946b531eef8b8b4bb21b5e4))
+
+### ✨ New Features
+* **Twitter:** Support 12.38.1-prod.01 ([30a0166](https://github.com/crimera/piko/commit/30a0166c5e76bc81bc7b83bbc2ddf5b4461a17da))
+
 ## [3.71.1](https://github.com/crimera/piko-newx/compare/v3.71.0...v3.71.1) (2026-10-29)
 
 ### 🐛 Bug Fixes
