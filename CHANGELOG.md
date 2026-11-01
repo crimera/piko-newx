@@ -1,3 +1,12 @@
+## [3.73.0](https://github.com/crimera/piko-newx/compare/v3.72.3...v3.73.0) (2026-11-01)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** drop the duplicated bottom padding under the profile Photos grid ([340dd02](https://github.com/crimera/piko/commit/340dd024aa889a5e116550039eafceeb45a85107))
+* **Twitter - newx:** resolve download, theme and reply hooks semantically ([fede82c](https://github.com/crimera/piko/commit/fede82cfe62d06ca84de2b32170a820676b3ee44))
+
+### ✨ New Features
+* **Twitter - newx:** support 12.39.0-prod.01 ([38fd3f8](https://github.com/crimera/piko/commit/38fd3f8c35eb5ba0819f0f5ae7dc15c1260f8097))
+
 ## [3.72.3](https://github.com/crimera/piko-newx/compare/v3.72.2...v3.72.3) (2026-10-29)
 
 ### 🐛 Bug Fixes
