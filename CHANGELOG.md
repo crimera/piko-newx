@@ -1,3 +1,12 @@
+## [3.74.0](https://github.com/crimera/piko-newx/compare/v3.73.0...v3.74.0) (2026-11-05)
+
+### 🐛 Bug Fixes
+* **Twitter - newx:** accept the 12.40.1 media reply bottom slot ([367d564](https://github.com/crimera/piko/commit/367d564a53944413a52360002b770646d2268da0))
+* **Twitter - newx:** select the RefreshTimeline auto-refresh dispatch ([1b07597](https://github.com/crimera/piko/commit/1b0759789ff11110bb2b72204f8649884fa7f172))
+
+### ✨ New Features
+* **Twitter - newx:** support 12.40.1-prod.01 ([3a68f2c](https://github.com/crimera/piko/commit/3a68f2cafac6da895939fe003683377f14466b9c))
+
 ## [3.73.0](https://github.com/crimera/piko-newx/compare/v3.72.3...v3.73.0) (2026-11-01)
 
 ### 🐛 Bug Fixes
